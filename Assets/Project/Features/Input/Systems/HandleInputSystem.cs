@@ -20,7 +20,7 @@ namespace Project.Features.Input.Systems {
 
         private Filter _headFilter;
 
-        private Entity? headEntity = null;
+        private Entity? headEntity;//todo ??
 
         public World world { get; set; }
         
