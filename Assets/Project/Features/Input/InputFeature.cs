@@ -1,10 +1,8 @@
 ﻿using ME.ECS;
 
 namespace Project.Features {
+    using Input.Modules; using Input.Systems;
 
-    using Components; using Modules; using Systems; using Features; using Markers;
-    using Input.Components; using Input.Modules; using Input.Systems; using Input.Markers;
-    
     namespace Input.Components {}
     namespace Input.Modules {}
     namespace Input.Systems {}
@@ -22,7 +20,7 @@ namespace Project.Features {
             AddModule<PlayerInputModule>();
             AddSystem<HandleInputSystem>();
         }
-
+        
         protected override void OnDeconstruct() {
             
         }

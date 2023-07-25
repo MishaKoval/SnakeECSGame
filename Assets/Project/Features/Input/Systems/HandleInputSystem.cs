@@ -18,38 +18,59 @@ namespace Project.Features.Input.Systems {
         
         private InputFeature feature;
 
+        private Filter _headFilter;
+
+        private Entity? headEntity = null;
+
         public World world { get; set; }
         
         void ISystemBase.OnConstruct() {
             
             this.GetFeature(out this.feature);
+            Filter.Create("Head-Filter")
+                .With<IsHead>()
+                .Push(ref _headFilter);
         }
-        
-        void ISystemBase.OnDeconstruct() {}
+
+        void ISystemBase.OnDeconstruct()
+        {
+        }
 
         void IUpdate.Update(in float deltaTime)
         {
-            //var head = world.GetFeature<HeadFeature>();
-            if (world.GetMarker(out LeftKeyMarker leftKeyMarker))
+            if (headEntity == null)
             {
-                //head.GetHead().Get<HeadDirection>().direction = Vector3.left;
-                Debug.Log("Pressed!" + nameof(leftKeyMarker));
+                if (_headFilter.Count > 0)
+                {
+                    var arr = _headFilter.ToArray();
+                    headEntity = arr[0];
+                    arr.Dispose();
+                }
             }
-            if (world.GetMarker(out RightKeyMarker rightKeyMarker))
+            else
             {
-                //head.GetHead().Get<HeadDirection>().direction = Vector3.right;
-                Debug.Log("Pressed!" + nameof(rightKeyMarker));
+                if (world.GetMarker(out LeftKeyMarker leftKeyMarker))
+                {
+                    headEntity.Value.Get<HeadDirection>().direction = Vector3.left;
+                    Debug.Log("Pressed!" + nameof(leftKeyMarker));
+                }
+                if (world.GetMarker(out RightKeyMarker rightKeyMarker))
+                {
+                    headEntity.Value.Get<HeadDirection>().direction  = Vector3.right;
+                    Debug.Log("Pressed!" + nameof(rightKeyMarker));
+                }
+                if (world.GetMarker(out UpKeyMarker upKeyMarker))
+                {
+                    headEntity.Value.Get<HeadDirection>().direction  = Vector3.forward;
+                    Debug.Log("Pressed!" + nameof(upKeyMarker));
+                }
+                if (world.GetMarker(out DownKeyMarker downKeyMarker))
+                {
+                    headEntity.Value.Get<HeadDirection>().direction  = Vector3.back;
+                    Debug.Log("Pressed!" + nameof(downKeyMarker));
+                }
             }
-            if (world.GetMarker(out UpKeyMarker upKeyMarker))
-            {
-                //head.GetHead().Get<HeadDirection>().direction = Vector3.forward;
-                Debug.Log("Pressed!" + nameof(upKeyMarker));
-            }
-            if (world.GetMarker(out DownKeyMarker downKeyMarker))
-            {
-                //head.GetHead().Get<HeadDirection>().direction = Vector3.back;
-                Debug.Log("Pressed!" + nameof(downKeyMarker));
-            }
+          
         }
         
     }
