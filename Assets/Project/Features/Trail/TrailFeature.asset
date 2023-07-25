@@ -9,8 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf8a7976a7fc42241b2904b66091a0ed, type: 3}
-  m_Name: BallFeature
+  m_Script: {fileID: 11500000, guid: 2844274189172ac42bcbf574999ccef8, type: 3}
+  m_Name: TrailFeature
   m_EditorClassIdentifier: 
   editorComment: 
-  BallView: {fileID: 5801560518312268954, guid: 6f2501633ca977a46aaa25d72c4211c1, type: 3}

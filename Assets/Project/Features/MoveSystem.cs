@@ -1,7 +1,6 @@
 ﻿using ME.ECS;
-using UnityEngine;
 
-namespace Project.Features.Ball.Systems {
+namespace Project.Features {
 
     #pragma warning disable
     using Project.Components; using Project.Modules; using Project.Systems; using Project.Markers;
@@ -13,17 +12,11 @@ namespace Project.Features.Ball.Systems {
      Unity.IL2CPP.CompilerServices.Il2CppSetOptionAttribute(Unity.IL2CPP.CompilerServices.Option.ArrayBoundsChecks, false),
      Unity.IL2CPP.CompilerServices.Il2CppSetOptionAttribute(Unity.IL2CPP.CompilerServices.Option.DivideByZeroChecks, false)]
     #endif
-    public sealed class BallSpawnSystem : ISystemFilter {
-        
-        private BallFeature feature;
+    public sealed class MoveSystem : ISystemFilter {
         
         public World world { get; set; }
         
-        void ISystemBase.OnConstruct() {
-            
-            this.GetFeature(out this.feature);
-            //world.InstantiateView(feature.BallView,  feature.CreateBall());
-        }
+        void ISystemBase.OnConstruct() {}
         
         void ISystemBase.OnDeconstruct() {}
         
@@ -34,23 +27,11 @@ namespace Project.Features.Ball.Systems {
         Filter ISystemFilter.filter { get; set; }
         Filter ISystemFilter.CreateFilter() {
             
-            return Filter.Create("Filter-BallSpawnSystem").With<BallTag>().Push();
+            return Filter.Create("Filter-MoveSystem").Push();
             
         }
-
-        void ISystemFilter.AdvanceTick(in Entity entity, in float deltaTime)
-        {
-            ref var time = ref entity.Get<BallSpawnTime>().Value;
-            //ref readonly var timeDefault = ref entity.Read<TimerDefault>().Value;
-            time -= deltaTime;
-            
-            
-            if (time <= 0)
-            {
-                feature.CreateBall();
-                time = 5.0f;
-            }
-        }
+    
+        void ISystemFilter.AdvanceTick(in Entity entity, in float deltaTime) {}
     
     }
     

@@ -1,4 +1,4 @@
-#if FPS_MODULE_SUPPORT
+
 namespace Project.Modules {
     
     using TState = ProjectState;
@@ -17,4 +17,3 @@ namespace Project.Modules {
     }
     
 }
-#endif
