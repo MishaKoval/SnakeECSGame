@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8721652384718889126}
   - component: {fileID: 8721652384718889125}
   - component: {fileID: 8721652384718889124}
-  - component: {fileID: 8721652384718889120}
+  - component: {fileID: 5801560518312268954}
   m_Layer: 0
   m_Name: Cube
   m_TagString: Untagged
@@ -98,7 +98,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &8721652384718889120
+--- !u!114 &5801560518312268954
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -107,7 +107,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 8721652384718889131}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bf2182e98b2529540bf76703ac16e64d, type: 3}
+  m_Script: {fileID: 11500000, guid: 8f9c170be7a68a2439472c3279a3117c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   particleSystemSimulation:

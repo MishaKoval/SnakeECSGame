@@ -9,10 +9,14 @@ namespace ME.ECS {
             CoreComponentsInitializer.InitTypeId();
 
 
-            WorldUtilities.InitComponentTypeId<Project.Features.Cubes.Components.CubeDirection>(false, true, true, false, false, false, false, false, false);
-            WorldUtilities.InitComponentTypeId<Project.Features.Cubes.Components.CubeInitializer>(false, true, true, false, false, false, false, false, false);
-            WorldUtilities.InitComponentTypeId<Project.Features.Cubes.Components.CubeSpeed>(false, true, true, false, false, false, false, false, false);
-            WorldUtilities.InitComponentTypeId<Project.Features.Cubes.Components.IsCube>(true, true, true, false, false, false, false, false, false);
+            WorldUtilities.InitComponentTypeId<Project.Components.BallDirection>(false, true, true, false, false, false, false, false, false);
+            WorldUtilities.InitComponentTypeId<Project.Components.BallLaunchTime>(false, true, true, false, false, false, false, false, false);
+            WorldUtilities.InitComponentTypeId<Project.Components.BallRadius>(false, true, true, false, false, false, false, false, false);
+            WorldUtilities.InitComponentTypeId<Project.Components.BallSpawnTime>(false, true, true, false, false, false, false, false, false);
+            WorldUtilities.InitComponentTypeId<Project.Components.CurrentPlayer>(false, true, true, false, false, false, false, false, false);
+            WorldUtilities.InitComponentTypeId<Project.Components.BallLaunched>(true, true, true, false, false, false, false, false, false);
+            WorldUtilities.InitComponentTypeId<Project.Components.BallTag>(true, true, true, false, false, false, false, false, false);
+            WorldUtilities.InitComponentTypeId<Project.Components.Despawn>(true, true, true, false, false, false, false, false, false);
 
         }
 
@@ -23,19 +27,27 @@ namespace ME.ECS {
             CoreComponentsInitializer.InitTypeId();
 
 
-            WorldUtilities.InitComponentTypeId<Project.Features.Cubes.Components.CubeDirection>(false, true, true, false, false, false, false, false, false);
-            WorldUtilities.InitComponentTypeId<Project.Features.Cubes.Components.CubeInitializer>(false, true, true, false, false, false, false, false, false);
-            WorldUtilities.InitComponentTypeId<Project.Features.Cubes.Components.CubeSpeed>(false, true, true, false, false, false, false, false, false);
-            WorldUtilities.InitComponentTypeId<Project.Features.Cubes.Components.IsCube>(true, true, true, false, false, false, false, false, false);
+            WorldUtilities.InitComponentTypeId<Project.Components.BallDirection>(false, true, true, false, false, false, false, false, false);
+            WorldUtilities.InitComponentTypeId<Project.Components.BallLaunchTime>(false, true, true, false, false, false, false, false, false);
+            WorldUtilities.InitComponentTypeId<Project.Components.BallRadius>(false, true, true, false, false, false, false, false, false);
+            WorldUtilities.InitComponentTypeId<Project.Components.BallSpawnTime>(false, true, true, false, false, false, false, false, false);
+            WorldUtilities.InitComponentTypeId<Project.Components.CurrentPlayer>(false, true, true, false, false, false, false, false, false);
+            WorldUtilities.InitComponentTypeId<Project.Components.BallLaunched>(true, true, true, false, false, false, false, false, false);
+            WorldUtilities.InitComponentTypeId<Project.Components.BallTag>(true, true, true, false, false, false, false, false, false);
+            WorldUtilities.InitComponentTypeId<Project.Components.Despawn>(true, true, true, false, false, false, false, false, false);
 
             ComponentsInitializerWorld.Setup(ComponentsInitializerWorldGen.Init);
             CoreComponentsInitializer.Init(state, ref noState);
 
 
-            state.structComponents.ValidateUnmanaged<Project.Features.Cubes.Components.CubeDirection>(ref state.allocator, false);
-            state.structComponents.ValidateUnmanaged<Project.Features.Cubes.Components.CubeInitializer>(ref state.allocator, false);
-            state.structComponents.ValidateUnmanaged<Project.Features.Cubes.Components.CubeSpeed>(ref state.allocator, false);
-            state.structComponents.ValidateUnmanaged<Project.Features.Cubes.Components.IsCube>(ref state.allocator, true);
+            state.structComponents.ValidateUnmanaged<Project.Components.BallDirection>(ref state.allocator, false);
+            state.structComponents.ValidateUnmanaged<Project.Components.BallLaunchTime>(ref state.allocator, false);
+            state.structComponents.ValidateUnmanaged<Project.Components.BallRadius>(ref state.allocator, false);
+            state.structComponents.ValidateUnmanaged<Project.Components.BallSpawnTime>(ref state.allocator, false);
+            state.structComponents.ValidateUnmanaged<Project.Components.CurrentPlayer>(ref state.allocator, false);
+            state.structComponents.ValidateUnmanaged<Project.Components.BallLaunched>(ref state.allocator, true);
+            state.structComponents.ValidateUnmanaged<Project.Components.BallTag>(ref state.allocator, true);
+            state.structComponents.ValidateUnmanaged<Project.Components.Despawn>(ref state.allocator, true);
 
         }
 
@@ -46,10 +58,14 @@ namespace ME.ECS {
         public static void Init(Entity entity) {
 
 
-            entity.ValidateDataUnmanaged<Project.Features.Cubes.Components.CubeDirection>(false);
-            entity.ValidateDataUnmanaged<Project.Features.Cubes.Components.CubeInitializer>(false);
-            entity.ValidateDataUnmanaged<Project.Features.Cubes.Components.CubeSpeed>(false);
-            entity.ValidateDataUnmanaged<Project.Features.Cubes.Components.IsCube>(true);
+            entity.ValidateDataUnmanaged<Project.Components.BallDirection>(false);
+            entity.ValidateDataUnmanaged<Project.Components.BallLaunchTime>(false);
+            entity.ValidateDataUnmanaged<Project.Components.BallRadius>(false);
+            entity.ValidateDataUnmanaged<Project.Components.BallSpawnTime>(false);
+            entity.ValidateDataUnmanaged<Project.Components.CurrentPlayer>(false);
+            entity.ValidateDataUnmanaged<Project.Components.BallLaunched>(true);
+            entity.ValidateDataUnmanaged<Project.Components.BallTag>(true);
+            entity.ValidateDataUnmanaged<Project.Components.Despawn>(true);
 
         }
 

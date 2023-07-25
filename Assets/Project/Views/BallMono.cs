@@ -1,10 +1,10 @@
 ﻿using ME.ECS;
 
-namespace Project.Features.Cubes.Views {
+namespace Project.Views {
     
     using ME.ECS.Views.Providers;
     
-    public class CubeView : MonoBehaviourView {
+    public class BallMono : MonoBehaviourView {
         
         public override bool applyStateJob => true;
 
