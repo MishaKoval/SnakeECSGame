@@ -17,8 +17,10 @@ namespace Project.Features {
     #endif
     public sealed class InputFeature : Feature {
 
-        protected override void OnConstruct() {
-            
+        protected override void OnConstruct()
+        {
+            AddModule<PlayerInputModule>();
+            AddSystem<HandleInputSystem>();
         }
 
         protected override void OnDeconstruct() {

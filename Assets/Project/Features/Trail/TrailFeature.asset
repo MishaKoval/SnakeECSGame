@@ -13,3 +13,4 @@ MonoBehaviour:
   m_Name: TrailFeature
   m_EditorClassIdentifier: 
   editorComment: 
+  trailView: {fileID: -3545691378014960253, guid: 59bab0a3fdfa276488619b905d7254f8, type: 3}

@@ -1,5 +1,7 @@
 ﻿using ME.ECS;
 using ME.ECS.Views.Providers;
+using Project.Features.Trail.Views;
+using UnityEngine;
 
 namespace Project.Features {
 
@@ -18,8 +20,7 @@ namespace Project.Features {
     #endif
     public sealed class TrailFeature : Feature
     {
-
-        public MonoBehaviourView trailView;
+        [SerializeField] private TrailView trailView;
         
         protected override void OnConstruct() {
             
@@ -33,7 +34,6 @@ namespace Project.Features {
         protected override void OnDeconstruct() {
             
         }
-
     }
 
 }

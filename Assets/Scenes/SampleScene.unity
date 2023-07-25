@@ -293,8 +293,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 963194225}
-  m_LocalRotation: {x: 0.38268343, y: 0, z: 0, w: 0.92387956}
-  m_LocalPosition: {x: 0, y: 10, z: -10}
+  m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
+  m_LocalPosition: {x: 16, y: 26, z: 16}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -310,7 +310,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 4958016069329523290, guid: 9eb031f1cf94b1547bdea3a8e0e21f76, type: 3}
       propertyPath: selectedConfiguration
-      value: Debug
+      value: Release
       objectReference: {fileID: 0}
     - target: {fileID: 4958016069329523290, guid: 9eb031f1cf94b1547bdea3a8e0e21f76, type: 3}
       propertyPath: configurations.Array.size
@@ -326,7 +326,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4958016069329523290, guid: 9eb031f1cf94b1547bdea3a8e0e21f76, type: 3}
       propertyPath: featuresListCategories.items.Array.size
-      value: 0
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 4958016069329523290, guid: 9eb031f1cf94b1547bdea3a8e0e21f76, type: 3}
       propertyPath: configurations.Array.data[1].configurationType
@@ -334,11 +334,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4958016069329523290, guid: 9eb031f1cf94b1547bdea3a8e0e21f76, type: 3}
       propertyPath: configurations.Array.data[0].defines.Array.size
-      value: 22
+      value: 23
       objectReference: {fileID: 0}
     - target: {fileID: 4958016069329523290, guid: 9eb031f1cf94b1547bdea3a8e0e21f76, type: 3}
       propertyPath: configurations.Array.data[1].defines.Array.size
-      value: 18
+      value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 4958016069329523290, guid: 9eb031f1cf94b1547bdea3a8e0e21f76, type: 3}
+      propertyPath: worldDebugSettings.createGameObjectsRepresentation
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4958016069329523290, guid: 9eb031f1cf94b1547bdea3a8e0e21f76, type: 3}
       propertyPath: configurations.Array.data[0].defines.Array.data[0].name
@@ -469,6 +473,10 @@ PrefabInstance:
       value: TRANSFORM_HIERARCHY_SUPPORT
       objectReference: {fileID: 0}
     - target: {fileID: 4958016069329523290, guid: 9eb031f1cf94b1547bdea3a8e0e21f76, type: 3}
+      propertyPath: configurations.Array.data[0].defines.Array.data[22].name
+      value: WORLD_MARKERS_MANAGED
+      objectReference: {fileID: 0}
+    - target: {fileID: 4958016069329523290, guid: 9eb031f1cf94b1547bdea3a8e0e21f76, type: 3}
       propertyPath: configurations.Array.data[1].defines.Array.data[10].name
       value: BUFFER_SLICED_DISABLED
       objectReference: {fileID: 0}
@@ -501,8 +509,16 @@ PrefabInstance:
       value: TRANSFORM_HIERARCHY_SUPPORT
       objectReference: {fileID: 0}
     - target: {fileID: 4958016069329523290, guid: 9eb031f1cf94b1547bdea3a8e0e21f76, type: 3}
+      propertyPath: configurations.Array.data[1].defines.Array.data[18].name
+      value: WORLD_MARKERS_MANAGED
+      objectReference: {fileID: 0}
+    - target: {fileID: 4958016069329523290, guid: 9eb031f1cf94b1547bdea3a8e0e21f76, type: 3}
+      propertyPath: configurations.Array.data[1].defines.Array.data[19].name
+      value: TRANSFORM_HIERARCHY_SUPPORT
+      objectReference: {fileID: 0}
+    - target: {fileID: 4958016069329523290, guid: 9eb031f1cf94b1547bdea3a8e0e21f76, type: 3}
       propertyPath: featuresListCategories.items.Array.data[0].folderCaption
-      value: CORE
+      value: INITIALIZATION
       objectReference: {fileID: 0}
     - target: {fileID: 4958016069329523290, guid: 9eb031f1cf94b1547bdea3a8e0e21f76, type: 3}
       propertyPath: featuresListCategories.items.Array.data[1].folderCaption
@@ -589,7 +605,15 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4958016069329523290, guid: 9eb031f1cf94b1547bdea3a8e0e21f76, type: 3}
+      propertyPath: configurations.Array.data[1].defines.Array.data[19].enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4958016069329523290, guid: 9eb031f1cf94b1547bdea3a8e0e21f76, type: 3}
       propertyPath: featuresListCategories.items.Array.data[0].features.features.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 4958016069329523290, guid: 9eb031f1cf94b1547bdea3a8e0e21f76, type: 3}
+      propertyPath: featuresListCategories.items.Array.data[1].features.features.Array.size
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4958016069329523290, guid: 9eb031f1cf94b1547bdea3a8e0e21f76, type: 3}
@@ -603,7 +627,31 @@ PrefabInstance:
     - target: {fileID: 4958016069329523290, guid: 9eb031f1cf94b1547bdea3a8e0e21f76, type: 3}
       propertyPath: featuresListCategories.items.Array.data[0].features.features.Array.data[0].feature
       value: 
-      objectReference: {fileID: 11400000, guid: ca708e3ddfb3cb847b97969bbd1065fc, type: 2}
+      objectReference: {fileID: 11400000, guid: 07c5408d6e334b1459fc39a36a2d494f, type: 2}
+    - target: {fileID: 4958016069329523290, guid: 9eb031f1cf94b1547bdea3a8e0e21f76, type: 3}
+      propertyPath: featuresListCategories.items.Array.data[0].features.features.Array.data[1].enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4958016069329523290, guid: 9eb031f1cf94b1547bdea3a8e0e21f76, type: 3}
+      propertyPath: featuresListCategories.items.Array.data[0].features.features.Array.data[1].feature
+      value: 
+      objectReference: {fileID: 11400000, guid: 3a1bf193165f48740b091b0b1ab129de, type: 2}
+    - target: {fileID: 4958016069329523290, guid: 9eb031f1cf94b1547bdea3a8e0e21f76, type: 3}
+      propertyPath: featuresListCategories.items.Array.data[1].features.features.Array.data[0].enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4958016069329523290, guid: 9eb031f1cf94b1547bdea3a8e0e21f76, type: 3}
+      propertyPath: featuresListCategories.items.Array.data[1].features.features.Array.data[0].feature
+      value: 
+      objectReference: {fileID: 11400000, guid: a7d357dc76db96745b9125232740d584, type: 2}
+    - target: {fileID: 4958016069329523290, guid: 9eb031f1cf94b1547bdea3a8e0e21f76, type: 3}
+      propertyPath: featuresListCategories.items.Array.data[1].features.features.Array.data[1].enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4958016069329523290, guid: 9eb031f1cf94b1547bdea3a8e0e21f76, type: 3}
+      propertyPath: featuresListCategories.items.Array.data[1].features.features.Array.data[1].feature
+      value: 
+      objectReference: {fileID: 11400000, guid: 3a1bf193165f48740b091b0b1ab129de, type: 2}
     - target: {fileID: 4958016069329523290, guid: 9eb031f1cf94b1547bdea3a8e0e21f76, type: 3}
       propertyPath: featuresListCategories.items.Array.data[4].features.features.Array.data[0].enabled
       value: 1

@@ -10,5 +10,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1faa8d43f24c9544a89af2cbd39ee791, type: 3}
-  m_Name: New Feature FF Data
+  m_Name: InputFeature
   m_EditorClassIdentifier: 
+  editorComment: 

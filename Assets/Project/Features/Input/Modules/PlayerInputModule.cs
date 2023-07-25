@@ -1,4 +1,6 @@
 ﻿using ME.ECS;
+using Project.Markers;
+using UnityEngine;
 
 namespace Project.Features.Input.Modules {
     
@@ -18,13 +20,29 @@ namespace Project.Features.Input.Modules {
         void IModuleBase.OnConstruct() {
             
             this.feature = this.world.GetFeature<InputFeature>();
-            
         }
         
         void IModuleBase.OnDeconstruct() {}
-        
-        void IUpdate.Update(in float deltaTime) {}
-        
+
+        void IUpdate.Update(in float deltaTime)
+        {
+            if (UnityEngine.Input.GetKeyDown(KeyCode.A))
+            {
+                world.AddMarker(new LeftKeyMarker());
+            }
+            if (UnityEngine.Input.GetKeyDown(KeyCode.D))
+            {
+                world.AddMarker(new RightKeyMarker());
+            }
+            if (UnityEngine.Input.GetKeyDown(KeyCode.W))
+            {
+                world.AddMarker(new UpKeyMarker());
+            }
+            if (UnityEngine.Input.GetKeyDown(KeyCode.S))
+            {
+                world.AddMarker(new DownKeyMarker());
+            }
+        }
     }
     
 }
