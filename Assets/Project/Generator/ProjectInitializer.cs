@@ -1,3 +1,5 @@
+using Project.Features;
+using Project.Features.Cubes.Views;
 using UnityEngine;
 
 #region Namespaces
@@ -18,8 +20,9 @@ namespace Project.Generator {
      Unity.IL2CPP.CompilerServices.Il2CppSetOptionAttribute(Unity.IL2CPP.CompilerServices.Option.DivideByZeroChecks, false)]
     #endif
     [DefaultExecutionOrder(-1000)]
-    public sealed class ProjectInitializer : InitializerBase {
-
+    public sealed class ProjectInitializer : InitializerBase
+    {
+        
         private World world;
         public float tickTime = 0.033f;
         public uint inputTicks = 3;
@@ -59,6 +62,8 @@ namespace Project.Generator {
                     this.world.SetEntitiesCapacity(this.entitiesCapacity);
                     this.Initialize(this.world);
                     
+                    //this.world.AddFeature(ScriptableObject.CreateInstance<CubesFeature>());
+
                 }
                 
             }
