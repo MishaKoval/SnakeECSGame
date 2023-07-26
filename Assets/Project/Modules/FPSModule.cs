@@ -12,7 +12,7 @@ namespace Project.Modules {
      Unity.IL2CPP.CompilerServices.Il2CppSetOptionAttribute(Unity.IL2CPP.CompilerServices.Option.ArrayBoundsChecks, false),
      Unity.IL2CPP.CompilerServices.Il2CppSetOptionAttribute(Unity.IL2CPP.CompilerServices.Option.DivideByZeroChecks, false)]
     #endif
-    public sealed class FPSModule : ME.ECS.FPSModule<TState> {
+    public sealed class FPSModule {
         
     }
     

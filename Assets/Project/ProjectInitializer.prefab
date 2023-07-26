@@ -41,7 +41,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 6009573824331432541}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d47e42c2376d9eb4cb1d30b0827e04e4, type: 3}
+  m_Script: {fileID: 11500000, guid: 425fbb87020ccc74aab9312550743a1e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   configurations:
@@ -49,25 +49,25 @@ MonoBehaviour:
     isDirty: 0
     configurationType: 0
     defines:
-    - enabled: 1
+    - enabled: 0
       name: GAMEOBJECT_VIEWS_MODULE_SUPPORT
-    - enabled: 1
+    - enabled: 0
       name: PARTICLES_VIEWS_MODULE_SUPPORT
-    - enabled: 1
+    - enabled: 0
       name: DRAWMESH_VIEWS_MODULE_SUPPORT
-    - enabled: 1
+    - enabled: 0
       name: WORLD_STATE_CHECK
-    - enabled: 1
+    - enabled: 0
       name: WORLD_THREAD_CHECK
-    - enabled: 1
+    - enabled: 0
       name: WORLD_EXCEPTIONS
     - enabled: 0
       name: WORLD_TICK_THREADED
-    - enabled: 1
+    - enabled: 0
       name: FPS_MODULE_SUPPORT
-    - enabled: 1
+    - enabled: 0
       name: ECS_COMPILE_IL2CPP_OPTIONS
-    - enabled: 1
+    - enabled: 0
       name: ECS_COMPILE_IL2CPP_OPTIONS_FILE_INCLUDE
     - enabled: 0
       name: MULTITHREAD_SUPPORT
@@ -91,23 +91,25 @@ MonoBehaviour:
       name: STATIC_API_DISABLED
     - enabled: 0
       name: COMPONENTS_COPYABLE
+    - enabled: 0
+      name: WORLD_MARKERS_MANAGED
   - name: Release
     isDirty: 0
     configurationType: 1
     defines:
-    - enabled: 1
+    - enabled: 0
       name: GAMEOBJECT_VIEWS_MODULE_SUPPORT
-    - enabled: 1
+    - enabled: 0
       name: PARTICLES_VIEWS_MODULE_SUPPORT
-    - enabled: 1
+    - enabled: 0
       name: DRAWMESH_VIEWS_MODULE_SUPPORT
     - enabled: 0
       name: WORLD_TICK_THREADED
-    - enabled: 1
+    - enabled: 0
       name: FPS_MODULE_SUPPORT
-    - enabled: 1
+    - enabled: 0
       name: ECS_COMPILE_IL2CPP_OPTIONS
-    - enabled: 1
+    - enabled: 0
       name: ECS_COMPILE_IL2CPP_OPTIONS_FILE_INCLUDE
     - enabled: 0
       name: MULTITHREAD_SUPPORT
@@ -129,6 +131,8 @@ MonoBehaviour:
       name: STATIC_API_DISABLED
     - enabled: 0
       name: COMPONENTS_COPYABLE
+    - enabled: 0
+      name: WORLD_MARKERS_MANAGED
   selectedConfiguration: Debug
   featuresListCategories:
     items: []

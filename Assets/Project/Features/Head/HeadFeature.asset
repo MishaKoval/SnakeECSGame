@@ -9,8 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8c4c6bc93121d1146a3cbde72d859175, type: 3}
+  m_Script: {fileID: 11500000, guid: 00d718c495fc76047969a4141165b326, type: 3}
   m_Name: HeadFeature
   m_EditorClassIdentifier: 
   editorComment: 
-  headView: {fileID: 9222254157794311590, guid: ab67117b978df024dbcfba29499ff150, type: 3}
+  headView: {fileID: 9222254157794311590, guid: 3397cd4e3809d5e488c832b0fe4ab385, type: 3}
+  startPos: {x: 0, y: 0, z: 0}

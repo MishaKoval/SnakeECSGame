@@ -62,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: a112ea50aba9fda43acc80b9d66bef0e, type: 2}
+  - {fileID: 2100000, guid: a7b364df44edd584b8129f52ae0d307b, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -93,7 +93,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7714289466004820276}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: a5db1ee8c55b4384d8b1c68ea0ea6023, type: 3}
+  m_Script: {fileID: 11500000, guid: 1a0c6b1d27f311f41a12a490efd556aa, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   particleSystemSimulation:

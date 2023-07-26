@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2844274189172ac42bcbf574999ccef8, type: 3}
+  m_Script: {fileID: 11500000, guid: b30ab4573493a964d9bb4a89e2bf2f53, type: 3}
   m_Name: TrailFeature
   m_EditorClassIdentifier: 
   editorComment: 
-  trailView: {fileID: -3545691378014960253, guid: 59bab0a3fdfa276488619b905d7254f8, type: 3}
+  trailView: {fileID: -3545691378014960253, guid: 67c26708049c0494ba1d37e188b93e9a, type: 3}

@@ -9,8 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c71238e754fbdea4582f498e4f46b35d, type: 3}
+  m_Script: {fileID: 11500000, guid: 6e5b437b2dc69b441b140fae148eccfb, type: 3}
   m_Name: FieldElementFeature
   m_EditorClassIdentifier: 
   editorComment: 
-  fieldElementView: {fileID: -6812810834501286535, guid: 0cb259ad9bd45e64fb819584c1867107, type: 3}
+  fieldElementView: {fileID: -6812810834501286535, guid: 1d5fef35cdf6b8f4ebb5641bdc0c0d58, type: 3}
