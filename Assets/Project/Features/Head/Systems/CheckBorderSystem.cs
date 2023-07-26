@@ -1,6 +1,8 @@
 ﻿using ME.ECS;
+using Unity.Mathematics;
+using UnityEngine;
 
-namespace Project.Features.Trail.Systems {
+namespace Project.Features.Head.Systems {
 
     #pragma warning disable
     using Project.Components; using Project.Modules; using Project.Systems; using Project.Markers;
@@ -12,9 +14,9 @@ namespace Project.Features.Trail.Systems {
      Unity.IL2CPP.CompilerServices.Il2CppSetOptionAttribute(Unity.IL2CPP.CompilerServices.Option.ArrayBoundsChecks, false),
      Unity.IL2CPP.CompilerServices.Il2CppSetOptionAttribute(Unity.IL2CPP.CompilerServices.Option.DivideByZeroChecks, false)]
     #endif
-    public sealed class TrailInitSystem : ISystemFilter {
+    public sealed class CheckBorderSystem : ISystemFilter {
         
-        private TrailFeature feature;
+        private HeadFeature feature;
         
         public World world { get; set; }
         
@@ -33,17 +35,33 @@ namespace Project.Features.Trail.Systems {
         Filter ISystemFilter.filter { get; set; }
         Filter ISystemFilter.CreateFilter() {
             
-            return Filter.Create("Filter-TrailInitSystem").With<TrailInitializer>().Push();
+            return Filter.Create("Filter-CheckBorderSystem").With<IsHead>().Push();
             
         }
 
         void ISystemFilter.AdvanceTick(in Entity entity, in float deltaTime)
         {
-            var date = entity.Get<TrailInitializer>();
-            entity.SetPosition(date.position);
-            world.InstantiateView(feature.TrailId,entity);
-            entity.Remove<TrailInitializer>();
-            entity.Set(new IsTrail(){id = date.id});
+            float3 pos = entity.GetPosition();
+            
+            if (pos.x > 32f)
+            {
+                entity.SetPosition(new float3(0,pos.y,pos.z));
+            }
+            
+            if (pos.x < 0f)
+            {
+                entity.SetPosition(new float3(31,pos.y,pos.z));
+            }
+            
+            if (pos.z > 32f)
+            {
+                entity.SetPosition(new float3(pos.x,pos.y,0));
+            }
+            
+            if (pos.z < 0f)
+            {
+                entity.SetPosition(new float3(pos.x,pos.y,31));
+            }
         }
     
     }

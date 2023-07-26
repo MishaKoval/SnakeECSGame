@@ -28,17 +28,16 @@ namespace Project.Features {
             TrailId = world.RegisterViewSource(trailView);
             AddSystem<TrailInitSystem>();
             AddSystem<TrailMoveSystem>();
-            AddSystem<TrailSystem>();
         }
 
         protected override void OnConstructLate()
         {
-            for (int i = 0; i < 2; i++)
+            for (int i = 0; i < 8; i++)
             {
                 var entity = world.AddEntity();
                 entity.Set(new TrailInitializer()
                 {
-                    position = new Vector3(0,0,-i),
+                    position = new Vector3(0,0,-i-1),
                     id = i
                 });
             }

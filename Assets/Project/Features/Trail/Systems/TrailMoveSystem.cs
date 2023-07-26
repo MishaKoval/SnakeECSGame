@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using ME.ECS;
 using Project.Features.Head.Components;
+using Unity.Mathematics;
 using UnityEngine;
 
 namespace Project.Features.Trail.Systems
@@ -28,14 +29,23 @@ namespace Project.Features.Trail.Systems
     {
         private TrailFeature feature;
         
-        
+        private Queue<Vector3> trailsPosition = new Queue<Vector3>();
+        private List<Vector3> positionList => trailsPosition.ToList();
+
 
         public World world { get; set; }
 
         void ISystemBase.OnConstruct()
         {
             this.GetFeature(out this.feature);
-            
+            trailsPosition.Enqueue(new Vector3(0, 0, -1));
+            trailsPosition.Enqueue(new Vector3(0, 0, -2));
+            trailsPosition.Enqueue(new Vector3(0, 0, -3));
+            trailsPosition.Enqueue(new Vector3(0, 0, -4));
+            trailsPosition.Enqueue(new Vector3(0, 0, -5));
+            trailsPosition.Enqueue(new Vector3(0, 0, -6));
+            trailsPosition.Enqueue(new Vector3(0, 0, -7));
+            trailsPosition.Enqueue(new Vector3(0, 0, -8));
         }
 
         void ISystemBase.OnDeconstruct()
@@ -55,7 +65,12 @@ namespace Project.Features.Trail.Systems
 
         void ISystemFilter.AdvanceTick(in Entity entity, in float deltaTime)
         {
-            entity.SetPosition(world.GetSystem<TrailSystem>().positionList[entity.Get<IsTrail>().id]);
+            if (entity.Get<IsTrail>().id == 0)
+            {
+                trailsPosition.Enqueue(world.GetFeature<HeadFeature>().GetHead().GetPosition() - (float3)world.GetFeature<HeadFeature>().GetHead().Get<HeadDirection>().direction);
+                trailsPosition.Dequeue();
+            }
+            entity.SetPosition(positionList[entity.Get<IsTrail>().id]);
         }
     }
 }

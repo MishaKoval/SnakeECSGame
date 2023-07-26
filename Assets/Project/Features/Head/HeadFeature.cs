@@ -29,6 +29,7 @@ namespace Project.Features {
             HeadId = world.RegisterViewSource(headView);
             AddSystem<HeadInitSystem>();
             AddSystem<HeadMoveSystem>();
+            AddSystem<CheckBorderSystem>();
         }
         
         public Entity GetHead()
