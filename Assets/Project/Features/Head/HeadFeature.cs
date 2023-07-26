@@ -21,7 +21,7 @@ namespace Project.Features {
         [SerializeField] private HeadView headView;
         [SerializeField] private Vector3 startPos;
         
-        //private Filter _headFilter;
+        private Entity _headEntity;
         
         public ViewId HeadId { get; private set;}
         
@@ -29,24 +29,17 @@ namespace Project.Features {
             HeadId = world.RegisterViewSource(headView);
             AddSystem<HeadInitSystem>();
             AddSystem<HeadMoveSystem>();
-            
-            /*Filter.Create("Head-Filter")
-                .With<IsHead>()
-                .Push(ref _headFilter);*/
         }
         
-        /*public Entity GetHead()
+        public Entity GetHead()
         {
-            if (_headFilter.Count > 0)
-            {
-                return _headFilter.ToArray()[0];
-            }
-            return Entity.Empty;
-        }*/
+            return _headEntity;
+        }
         
         protected override void OnConstructLate()
         {
             var entity = world.AddEntity();
+            _headEntity = entity;
             entity.Set(new HeadInitializer()
             {
                 position = startPos,

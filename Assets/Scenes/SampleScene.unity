@@ -143,6 +143,10 @@ PrefabInstance:
       value: 18
       objectReference: {fileID: 0}
     - target: {fileID: 4958016069329523290, guid: 784c00474f8725342b82fe45044d069a, type: 3}
+      propertyPath: worldDebugSettings.createGameObjectsRepresentation
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4958016069329523290, guid: 784c00474f8725342b82fe45044d069a, type: 3}
       propertyPath: configurations.Array.data[0].defines.Array.data[0].name
       value: GAMEOBJECT_VIEWS_MODULE_SUPPORT
       objectReference: {fileID: 0}
@@ -316,7 +320,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4958016069329523290, guid: 784c00474f8725342b82fe45044d069a, type: 3}
       propertyPath: featuresListCategories.items.Array.data[1].features.features.Array.size
-      value: 2
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 4958016069329523290, guid: 784c00474f8725342b82fe45044d069a, type: 3}
       propertyPath: featuresListCategories.items.Array.data[0].features.features.Array.data[0].enabled
@@ -342,6 +346,14 @@ PrefabInstance:
       propertyPath: featuresListCategories.items.Array.data[1].features.features.Array.data[1].feature
       value: 
       objectReference: {fileID: 11400000, guid: 9a749994c81ab254b917060d87a320d1, type: 2}
+    - target: {fileID: 4958016069329523290, guid: 784c00474f8725342b82fe45044d069a, type: 3}
+      propertyPath: featuresListCategories.items.Array.data[1].features.features.Array.data[2].enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4958016069329523290, guid: 784c00474f8725342b82fe45044d069a, type: 3}
+      propertyPath: featuresListCategories.items.Array.data[1].features.features.Array.data[2].feature
+      value: 
+      objectReference: {fileID: 11400000, guid: 4a817fb4177b6f241a29187a7f9d9774, type: 2}
     - target: {fileID: 6009573824331432541, guid: 784c00474f8725342b82fe45044d069a, type: 3}
       propertyPath: m_Name
       value: ProjectInitializer

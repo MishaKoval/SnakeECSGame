@@ -22,13 +22,26 @@ namespace Project.Features {
     {
         [SerializeField] private TrailView trailView;
         
+        public ViewId TrailId { get; private set;}
+        
         protected override void OnConstruct() {
-            
+            TrailId = world.RegisterViewSource(trailView);
+            AddSystem<TrailInitSystem>();
+            AddSystem<TrailMoveSystem>();
+            AddSystem<TrailSystem>();
         }
 
         protected override void OnConstructLate()
         {
-            base.OnConstructLate();
+            for (int i = 0; i < 2; i++)
+            {
+                var entity = world.AddEntity();
+                entity.Set(new TrailInitializer()
+                {
+                    position = new Vector3(0,0,-i),
+                    id = i
+                });
+            }
         }
 
         protected override void OnDeconstruct() {

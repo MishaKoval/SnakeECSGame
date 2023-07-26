@@ -34,7 +34,6 @@ namespace Project.Features.Head.Systems {
         Filter ISystemFilter.CreateFilter() {
             
             return Filter.Create("Filter-HeadInitSystem").With<HeadInitializer>().Push();
-            
         }
 
         void ISystemFilter.AdvanceTick(in Entity entity, in float deltaTime)

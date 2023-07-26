@@ -1,7 +1,6 @@
 ﻿using ME.ECS;
-using Unity.Mathematics;
 
-namespace Project.Features.Head.Systems {
+namespace Project.Features.Trail.Systems {
 
     #pragma warning disable
     using Project.Components; using Project.Modules; using Project.Systems; using Project.Markers;
@@ -13,9 +12,9 @@ namespace Project.Features.Head.Systems {
      Unity.IL2CPP.CompilerServices.Il2CppSetOptionAttribute(Unity.IL2CPP.CompilerServices.Option.ArrayBoundsChecks, false),
      Unity.IL2CPP.CompilerServices.Il2CppSetOptionAttribute(Unity.IL2CPP.CompilerServices.Option.DivideByZeroChecks, false)]
     #endif
-    public sealed class HeadMoveSystem : ISystemFilter {
+    public sealed class TrailInitSystem : ISystemFilter {
         
-        private HeadFeature feature;
+        private TrailFeature feature;
         
         public World world { get; set; }
         
@@ -34,15 +33,17 @@ namespace Project.Features.Head.Systems {
         Filter ISystemFilter.filter { get; set; }
         Filter ISystemFilter.CreateFilter() {
             
-            return Filter.Create("Filter-HeadMOveSystem").With<IsHead>().Push();
+            return Filter.Create("Filter-TrailInitSystem").With<TrailInitializer>().Push();
             
         }
 
         void ISystemFilter.AdvanceTick(in Entity entity, in float deltaTime)
         {
-            var pos = entity.GetPosition();
-            pos += (float3)entity.Get<HeadDirection>().direction;// * (entity.Get<HeadSpeed>().speed * deltaTime);
-            entity.SetPosition(pos);
+            var date = entity.Get<TrailInitializer>();
+            entity.Set(new IsTrail(){id = date.id});
+            entity.SetPosition(date.position);
+            world.InstantiateView(feature.TrailId,entity);
+            entity.Remove<TrailInitializer>();
         }
     
     }

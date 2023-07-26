@@ -38,7 +38,6 @@ namespace Project.Features {
                     {
                         position = new Vector3(i,0,j)
                     });
-                    Debug.Log(entity.Get<FieldElementInitializer>().position);
                 }
             }
         }
