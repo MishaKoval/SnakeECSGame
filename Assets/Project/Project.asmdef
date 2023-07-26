@@ -9,7 +9,9 @@
         "Unity.Collections",
         "ME.ECS.Transform",
         "Unity.Mathematics",
-        "ME.ECS.Markers"
+        "ME.ECS.Markers",
+        "endel.nativewebsocket",
+        "Unity.TextMeshPro"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],
