@@ -42,6 +42,11 @@ namespace Project.Features.Input.Modules {
             {
                 world.AddMarker(new DownKeyMarker());
             }
+            
+            if (UnityEngine.Input.GetKeyDown(KeyCode.Space))
+            {
+                world.AddMarker(new SpaceKeyMarker());
+            }
         }
     }
     

@@ -17,11 +17,9 @@ namespace Project.Features.Trail.Systems {
         private TrailFeature feature;
         
         public World world { get; set; }
-        
+
         void ISystemBase.OnConstruct() {
-            
             this.GetFeature(out this.feature);
-            
         }
         
         void ISystemBase.OnDeconstruct() {}
@@ -32,9 +30,7 @@ namespace Project.Features.Trail.Systems {
         #endif
         Filter ISystemFilter.filter { get; set; }
         Filter ISystemFilter.CreateFilter() {
-            
             return Filter.Create("Filter-TrailInitSystem").With<TrailInitializer>().Push();
-            
         }
 
         void ISystemFilter.AdvanceTick(in Entity entity, in float deltaTime)
@@ -43,7 +39,7 @@ namespace Project.Features.Trail.Systems {
             entity.SetPosition(date.position);
             world.InstantiateView(feature.TrailId,entity);
             entity.Remove<TrailInitializer>();
-            entity.Set(new IsTrail(){id = date.id});
+            entity.Set(new IsTrail(){id = date.id,position = date.position});
         }
     
     }

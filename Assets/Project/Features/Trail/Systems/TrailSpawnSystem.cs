@@ -13,7 +13,7 @@ namespace Project.Features.Trail.Systems {
      Unity.IL2CPP.CompilerServices.Il2CppSetOptionAttribute(Unity.IL2CPP.CompilerServices.Option.ArrayBoundsChecks, false),
      Unity.IL2CPP.CompilerServices.Il2CppSetOptionAttribute(Unity.IL2CPP.CompilerServices.Option.DivideByZeroChecks, false)]
     #endif
-    public sealed class TrailMoveSystem : ISystemFilter {
+    public sealed class TrailSpawnSystem :  ISystem, IUpdate {
         
         private TrailFeature feature;
         
@@ -26,33 +26,15 @@ namespace Project.Features.Trail.Systems {
         }
         
         void ISystemBase.OnDeconstruct() {}
-        
-        #if !CSHARP_8_OR_NEWER
-        bool ISystemFilter.jobs => false;
-        int ISystemFilter.jobsBatchCount => 64;
-        #endif
-        Filter ISystemFilter.filter { get; set; }
-        Filter ISystemFilter.CreateFilter() {
-            
-            return Filter.Create("Filter-TrailMoveSystem").With<TrailsData>().Push();
-            
-        }
 
-        void ISystemFilter.AdvanceTick(in Entity entity, in float deltaTime)
+        public void Update(in float deltaTime)
         {
-            var positions = world.GetSystem<TrailPositionsSystem>().GetPositions();
-            var trails = entity.Get<TrailsData>().Trails;
-            Debug.Log("Poses"+positions.Count);
-            Debug.Log("Trails" + trails.Count);
-            int trailIndex = 0;
-            foreach (var pos in positions)
+            if (world.GetMarker(out SpaceKeyMarker _))
             {
-                var trail = trails[in world.GetState().allocator,trailIndex];
-                trail.SetPosition(pos);
-                trailIndex++;
+                world.GetSystem<TrailPositionsSystem>().GetPositions().Enqueue(ref world.GetState().allocator,world.GetFeature<HeadFeature>().GetHead().GetPosition());//todo
+                feature.SpawnLstTrail();
             }
         }
-    
     }
     
 }
