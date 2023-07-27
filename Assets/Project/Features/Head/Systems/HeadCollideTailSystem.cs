@@ -1,14 +1,11 @@
 ﻿using ME.ECS;
 using Project.Features.Trail.Components;
-using Unity.Mathematics;
 using UnityEngine;
 
 namespace Project.Features.Head.Systems {
 
     #pragma warning disable
-    using Project.Components; using Project.Modules; using Project.Systems; using Project.Markers;
-    using Components; using Modules; using Systems; using Markers;
-    #pragma warning restore
+#pragma warning restore
     
     #if ECS_COMPILE_IL2CPP_OPTIONS
     [Unity.IL2CPP.CompilerServices.Il2CppSetOptionAttribute(Unity.IL2CPP.CompilerServices.Option.NullChecks, false),
@@ -30,7 +27,7 @@ namespace Project.Features.Head.Systems {
         void ISystemBase.OnDeconstruct() {}
         
         #if !CSHARP_8_OR_NEWER
-        bool ISystemFilter.jobs => false;
+        bool ISystemFilter.jobs => true;
         int ISystemFilter.jobsBatchCount => 64;
         #endif
         Filter ISystemFilter.filter { get; set; }
@@ -39,12 +36,12 @@ namespace Project.Features.Head.Systems {
             return Filter.Create("Filter-HeadCollideTailSystem").With<IsTrail>().Push();
             
         }
-
+        
         void ISystemFilter.AdvanceTick(in Entity entity, in float deltaTime)
         {
             if (((Vector3)feature.GetHead().GetPosition() - (Vector3)entity.GetPosition()).sqrMagnitude < 0.01f)
             {
-                Debug.Log("GG");
+                
             }
         }
     

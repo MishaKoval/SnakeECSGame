@@ -39,7 +39,7 @@ namespace Project.Features.Trail.Systems {
             entity.SetPosition(date.position);
             world.InstantiateView(feature.TrailId,entity);
             entity.Remove<TrailInitializer>();
-            entity.Set(new IsTrail(){id = date.id,position = date.position});
+            entity.Set(new IsTrail());
         }
     
     }

@@ -43,7 +43,7 @@ namespace Project.Features.Head.Systems {
         {
             float3 pos = entity.GetPosition();
             
-            if (pos.x > 32f)
+            if (pos.x > 31f)
             {
                 entity.SetPosition(new float3(0,pos.y,pos.z));
             }
@@ -53,7 +53,7 @@ namespace Project.Features.Head.Systems {
                 entity.SetPosition(new float3(31,pos.y,pos.z));
             }
             
-            if (pos.z > 32f)
+            if (pos.z > 31f)
             {
                 entity.SetPosition(new float3(pos.x,pos.y,0));
             }
