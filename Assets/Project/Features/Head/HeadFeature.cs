@@ -30,6 +30,7 @@ namespace Project.Features {
             AddSystem<HeadInitSystem>();
             AddSystem<HeadMoveSystem>();
             AddSystem<CheckBorderSystem>();
+            AddSystem<HeadCollideTailSystem>();
         }
         
         public Entity GetHead()
