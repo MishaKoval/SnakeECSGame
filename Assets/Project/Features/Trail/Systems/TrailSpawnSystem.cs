@@ -22,7 +22,6 @@ namespace Project.Features.Trail.Systems {
         void ISystemBase.OnConstruct() {
             
             this.GetFeature(out this.feature);
-            
         }
         
         void ISystemBase.OnDeconstruct() {}
@@ -31,8 +30,8 @@ namespace Project.Features.Trail.Systems {
         {
             if (world.GetMarker(out SpaceKeyMarker _))
             {
-                world.GetSystem<TrailPositionsSystem>().GetPositions().Enqueue(ref world.GetState().allocator,world.GetFeature<HeadFeature>().GetHead().GetPosition());//todo
-                feature.SpawnLstTrail();
+                world.GetSystem<TrailPositionsSystem>().GetPositions().Enqueue(ref world.GetState().allocator,world.GetFeature<HeadFeature>().GetHead().GetPosition());
+                feature.SpawnLastTrail();
             }
         }
     }

@@ -45,12 +45,12 @@ namespace Project.Features.Trail.Systems
             
             trailsPosition.Enqueue(ref allocator,new Vector3(0, 0, -1));
             trailsPosition.Enqueue(ref allocator,new Vector3(0, 0, -2));
-            trailsPosition.Enqueue(ref allocator,new Vector3(0, 0, -3));
+            /*trailsPosition.Enqueue(ref allocator,new Vector3(0, 0, -3));
             trailsPosition.Enqueue(ref allocator,new Vector3(0, 0, -4));
             trailsPosition.Enqueue(ref allocator,new Vector3(0, 0, -5));
             trailsPosition.Enqueue(ref allocator,new Vector3(0, 0, -6));
             trailsPosition.Enqueue(ref allocator,new Vector3(0, 0, -7));
-            trailsPosition.Enqueue(ref allocator,new Vector3(0, 0, -8));
+            trailsPosition.Enqueue(ref allocator,new Vector3(0, 0, -8));*/
         }
 
         void ISystemBase.OnDeconstruct()

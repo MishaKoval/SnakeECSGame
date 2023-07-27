@@ -46,7 +46,7 @@ namespace Project.Features {
 
         protected override void OnConstructLate()
         {
-            for (int i = 0; i < 8; i++)
+            for (int i = 0; i < 2; i++)
             {
                 SpawnTrail(new Vector3(0, 0, -i - 1));
             }
@@ -62,11 +62,10 @@ namespace Project.Features {
             trailsData.Get<TrailsData>().Trails.Add(ref world.GetState().allocator,entity);
         }
 
-        public float3 SpawnLstTrail()
+        public void SpawnLastTrail()
         {
             var pos = GetLastTrailPos();
             SpawnTrail(GetLastTrailPos());
-            return pos;
         }
         
         private float3 GetLastTrailPos()
