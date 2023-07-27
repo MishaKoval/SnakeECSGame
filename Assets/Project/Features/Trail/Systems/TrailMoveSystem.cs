@@ -1,12 +1,11 @@
 ﻿using ME.ECS;
-using UnityEngine;
 
 namespace Project.Features.Trail.Systems {
 
     #pragma warning disable
-    using Project.Components; using Project.Modules; using Project.Systems; using Project.Markers;
-    using Components; using Modules; using Systems; using Markers;
-    #pragma warning restore
+    using Components;
+
+#pragma warning restore
     
     #if ECS_COMPILE_IL2CPP_OPTIONS
     [Unity.IL2CPP.CompilerServices.Il2CppSetOptionAttribute(Unity.IL2CPP.CompilerServices.Option.NullChecks, false),
@@ -42,8 +41,6 @@ namespace Project.Features.Trail.Systems {
         {
             var positions = world.GetSystem<TrailPositionsSystem>().GetPositions();
             var trails = entity.Get<TrailsData>().Trails;
-            Debug.Log("Poses"+positions.Count);
-            Debug.Log("Trails" + trails.Count);
             int trailIndex = 0;
             foreach (var pos in positions)
             {
@@ -52,7 +49,6 @@ namespace Project.Features.Trail.Systems {
                 trailIndex++;
             }
         }
-    
     }
     
 }
