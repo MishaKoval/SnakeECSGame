@@ -15,6 +15,7 @@ namespace ME.ECS {
             WorldUtilities.InitComponentTypeId<Project.Features.Head.Components.HeadSpeed>(false, true, true, false, false, false, false, false, false);
             WorldUtilities.InitComponentTypeId<Project.Features.Trail.Components.TrailInitializer>(false, true, true, false, false, false, false, false, false);
             WorldUtilities.InitComponentTypeId<Project.Features.Trail.Components.TrailsData>(false, true, true, false, false, false, false, false, false);
+            WorldUtilities.InitComponentTypeId<Project.Components.GamePaused>(true, true, true, false, false, false, false, false, false);
             WorldUtilities.InitComponentTypeId<Project.Features.FieldElement.Components.IsFieldElement>(true, true, true, false, false, false, false, false, false);
             WorldUtilities.InitComponentTypeId<Project.Features.Head.Components.IsHead>(true, true, true, false, false, false, false, false, false);
             WorldUtilities.InitComponentTypeId<Project.Features.Trail.Components.IsTrail>(true, true, true, false, false, false, false, false, false);
@@ -34,6 +35,7 @@ namespace ME.ECS {
             WorldUtilities.InitComponentTypeId<Project.Features.Head.Components.HeadSpeed>(false, true, true, false, false, false, false, false, false);
             WorldUtilities.InitComponentTypeId<Project.Features.Trail.Components.TrailInitializer>(false, true, true, false, false, false, false, false, false);
             WorldUtilities.InitComponentTypeId<Project.Features.Trail.Components.TrailsData>(false, true, true, false, false, false, false, false, false);
+            WorldUtilities.InitComponentTypeId<Project.Components.GamePaused>(true, true, true, false, false, false, false, false, false);
             WorldUtilities.InitComponentTypeId<Project.Features.FieldElement.Components.IsFieldElement>(true, true, true, false, false, false, false, false, false);
             WorldUtilities.InitComponentTypeId<Project.Features.Head.Components.IsHead>(true, true, true, false, false, false, false, false, false);
             WorldUtilities.InitComponentTypeId<Project.Features.Trail.Components.IsTrail>(true, true, true, false, false, false, false, false, false);
@@ -48,6 +50,7 @@ namespace ME.ECS {
             state.structComponents.ValidateUnmanaged<Project.Features.Head.Components.HeadSpeed>(ref state.allocator, false);
             state.structComponents.ValidateUnmanaged<Project.Features.Trail.Components.TrailInitializer>(ref state.allocator, false);
             state.structComponents.ValidateUnmanaged<Project.Features.Trail.Components.TrailsData>(ref state.allocator, false);
+            state.structComponents.ValidateUnmanaged<Project.Components.GamePaused>(ref state.allocator, true);
             state.structComponents.ValidateUnmanaged<Project.Features.FieldElement.Components.IsFieldElement>(ref state.allocator, true);
             state.structComponents.ValidateUnmanaged<Project.Features.Head.Components.IsHead>(ref state.allocator, true);
             state.structComponents.ValidateUnmanaged<Project.Features.Trail.Components.IsTrail>(ref state.allocator, true);
@@ -67,6 +70,7 @@ namespace ME.ECS {
             entity.ValidateDataUnmanaged<Project.Features.Head.Components.HeadSpeed>(false);
             entity.ValidateDataUnmanaged<Project.Features.Trail.Components.TrailInitializer>(false);
             entity.ValidateDataUnmanaged<Project.Features.Trail.Components.TrailsData>(false);
+            entity.ValidateDataUnmanaged<Project.Components.GamePaused>(true);
             entity.ValidateDataUnmanaged<Project.Features.FieldElement.Components.IsFieldElement>(true);
             entity.ValidateDataUnmanaged<Project.Features.Head.Components.IsHead>(true);
             entity.ValidateDataUnmanaged<Project.Features.Trail.Components.IsTrail>(true);

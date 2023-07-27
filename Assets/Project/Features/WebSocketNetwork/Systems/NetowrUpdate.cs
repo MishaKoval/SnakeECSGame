@@ -1,6 +1,6 @@
 ﻿using ME.ECS;
 
-namespace Project.Features {
+namespace Project.Features.WebSocketNetwork.Systems {
 
     #pragma warning disable
     using Project.Components; using Project.Modules; using Project.Systems; using Project.Markers;
@@ -12,27 +12,20 @@ namespace Project.Features {
      Unity.IL2CPP.CompilerServices.Il2CppSetOptionAttribute(Unity.IL2CPP.CompilerServices.Option.ArrayBoundsChecks, false),
      Unity.IL2CPP.CompilerServices.Il2CppSetOptionAttribute(Unity.IL2CPP.CompilerServices.Option.DivideByZeroChecks, false)]
     #endif
-    public sealed class MoveSystem : ISystemFilter {
+    public sealed class NetowrUpdate : ISystem, IAdvanceTick{
         
+        private WebSocketNetworkFeature feature;
+
         public World world { get; set; }
         
-        void ISystemBase.OnConstruct() {}
-        
-        void ISystemBase.OnDeconstruct() {}
-        
-        #if !CSHARP_8_OR_NEWER
-        bool ISystemFilter.jobs => false;
-        int ISystemFilter.jobsBatchCount => 64;
-        #endif
-        Filter ISystemFilter.filter { get; set; }
-        Filter ISystemFilter.CreateFilter() {
+        void ISystemBase.OnConstruct() {
             
-            return Filter.Create("Filter-MoveSystem").Push();
+            this.GetFeature(out this.feature);
             
         }
-    
-        void ISystemFilter.AdvanceTick(in Entity entity, in float deltaTime) {}
-    
+        void ISystemBase.OnDeconstruct() {}
+        void IAdvanceTick.AdvanceTick(in float deltaTime) {}
+
     }
     
 }
