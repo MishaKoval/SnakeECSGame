@@ -1,3 +1,6 @@
+using Project.Features;
+using Project.Features.Trail.Components;
+using Project.Features.Trail.Systems;
 using UnityEngine;
 
 #region Namespaces
@@ -95,6 +98,9 @@ namespace Project.Generator {
         public void OnDestroy() {
             
             if (this.world == null || this.world.isActive == false) return;
+            
+            world.GetSystem<TrailPositionsSystem>().GetPositions().Dispose(ref world.GetState().allocator);
+            world.GetFeature<TrailFeature>().GetTrailsData().Get<TrailsData>().Trails.Dispose(ref world.GetState().allocator);
             
             this.DeInitializeFeatures(this.world);
             // Release world

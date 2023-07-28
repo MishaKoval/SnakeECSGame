@@ -46,7 +46,6 @@ namespace Project.Features.Trail.Systems
 
         void ISystemBase.OnDeconstruct()
         {
-            trailsPosition.Dispose(ref world.GetState().allocator);
         }
 
 #if !CSHARP_8_OR_NEWER
