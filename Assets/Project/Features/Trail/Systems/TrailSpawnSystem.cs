@@ -1,12 +1,12 @@
 ﻿using ME.ECS;
-using UnityEngine;
+using Project.Markers.InputMarkers;
 
 namespace Project.Features.Trail.Systems {
 
     #pragma warning disable
-    using Project.Components; using Project.Modules; using Project.Systems; using Project.Markers;
-    using Components; using Modules; using Systems; using Markers;
-    #pragma warning restore
+    using Project.Markers;
+
+#pragma warning restore
     
     #if ECS_COMPILE_IL2CPP_OPTIONS
     [Unity.IL2CPP.CompilerServices.Il2CppSetOptionAttribute(Unity.IL2CPP.CompilerServices.Option.NullChecks, false),

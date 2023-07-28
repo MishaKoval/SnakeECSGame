@@ -23,8 +23,10 @@ namespace Project.Features.Trail.Systems {
             this.GetFeature(out this.feature);
             
         }
-        
-        void ISystemBase.OnDeconstruct() {}
+
+        void ISystemBase.OnDeconstruct()
+        {
+        }
         
         #if !CSHARP_8_OR_NEWER
         bool ISystemFilter.jobs => false;

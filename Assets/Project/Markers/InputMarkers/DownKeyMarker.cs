@@ -1,6 +1,6 @@
 ﻿using ME.ECS;
 
-namespace Project.Markers {
+namespace Project.Markers.InputMarkers {
     
     public struct DownKeyMarker : IMarker {}
     
