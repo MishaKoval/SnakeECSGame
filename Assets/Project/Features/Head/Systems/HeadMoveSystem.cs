@@ -41,7 +41,7 @@ namespace Project.Features.Head.Systems {
         void ISystemFilter.AdvanceTick(in Entity entity, in float deltaTime)
         {
             var pos = entity.GetPosition();
-            pos += (float3)entity.Get<HeadDirection>().direction;// * (entity.Get<HeadSpeed>().speed * deltaTime);
+            pos += (float3)entity.Get<HeadDirection>().direction;
             entity.SetPosition(pos);
         }
     

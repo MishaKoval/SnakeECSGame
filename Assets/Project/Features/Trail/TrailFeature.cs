@@ -1,14 +1,12 @@
 ﻿using ME.ECS;
-using ME.ECS.Views.Providers;
 using Project.Features.Trail.Views;
 using Unity.Mathematics;
 using UnityEngine;
 
 namespace Project.Features {
+    using Trail.Components;
+    using Trail.Systems;
 
-    using Components; using Modules; using Systems; using Features; using Markers;
-    using Trail.Components; using Trail.Modules; using Trail.Systems; using Trail.Markers;
-    
     namespace Trail.Components {}
     namespace Trail.Modules {}
     namespace Trail.Systems {}
@@ -75,7 +73,7 @@ namespace Project.Features {
         }
 
         protected override void OnDeconstruct() {
-            
+            trailsData.Get<TrailsData>().Trails.Dispose(ref world.GetState().allocator);
         }
     }
 

@@ -28,9 +28,7 @@ namespace Project.Features.Trail.Systems
         private TrailFeature feature;
         
         private Queue<Vector3> trailsPosition;
-        //private List<Vector3> positionList => trailsPosition.ToList();
-
-
+        
         public ref Queue<Vector3> GetPositions()
         {
             return ref trailsPosition;
@@ -42,19 +40,13 @@ namespace Project.Features.Trail.Systems
         {
             this.GetFeature(out this.feature);
             var allocator = world.GetState().allocator;
-            
             trailsPosition.Enqueue(ref allocator,new Vector3(0, 0, -1));
             trailsPosition.Enqueue(ref allocator,new Vector3(0, 0, -2));
-            /*trailsPosition.Enqueue(ref allocator,new Vector3(0, 0, -3));
-            trailsPosition.Enqueue(ref allocator,new Vector3(0, 0, -4));
-            trailsPosition.Enqueue(ref allocator,new Vector3(0, 0, -5));
-            trailsPosition.Enqueue(ref allocator,new Vector3(0, 0, -6));
-            trailsPosition.Enqueue(ref allocator,new Vector3(0, 0, -7));
-            trailsPosition.Enqueue(ref allocator,new Vector3(0, 0, -8));*/
         }
 
         void ISystemBase.OnDeconstruct()
         {
+            trailsPosition.Dispose(ref world.GetState().allocator);
         }
 
 #if !CSHARP_8_OR_NEWER
