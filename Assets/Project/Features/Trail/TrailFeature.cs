@@ -73,7 +73,7 @@ namespace Project.Features {
         }
 
         protected override void OnDeconstruct() {
-            trailsData.Get<TrailsData>().Trails.Dispose(ref world.GetState().allocator);
+            //trailsData.Get<TrailsData>().Trails.Dispose(ref world.GetState().allocator);
         }
     }
 

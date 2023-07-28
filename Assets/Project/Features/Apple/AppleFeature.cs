@@ -1,5 +1,6 @@
 ﻿using ME.ECS;
 using Project.Features.Apple.Views;
+using Unity.Mathematics;
 using UnityEngine;
 
 namespace Project.Features {
@@ -19,11 +20,39 @@ namespace Project.Features {
     #endif
     public sealed class AppleFeature : Feature
     {
-
         [SerializeField] private AppleView appleView;
-        
-        protected override void OnConstruct() {
+        public ViewId AppleId { get; private set; }
+
+        private Entity apple;
+
+        protected override void OnConstruct()
+        {
+            AppleId = world.RegisterViewSource(appleView);
+            AddSystem<AppleInitSystem>();
+            AddSystem<AppleSpawnSystem>();
+            AddSystem<AppleCollectSystem>();
+        }
+
+        public void ChangeApplePos()
+        {
+            var pos = apple.GetPosition();
+
+            float3 newPos;
             
+            do
+            {
+                int newPosX = world.GetRandomRange(0, 31);
+                int newPosZ = world.GetRandomRange(0, 31);
+                newPos = new float3(newPosX, 0, newPosZ);   
+            } while ((int)pos.x == (int)newPos.x && (int)pos.z == (int)newPos.z);
+            apple.SetPosition(newPos);
+        }
+
+        protected override void OnConstructLate()
+        {
+            var entity = world.AddEntity();
+            entity.Set(new AppleInitializer());
+            apple = entity;
         }
 
         protected override void OnDeconstruct() {

@@ -1,20 +1,22 @@
 ﻿using ME.ECS;
 using Project.Markers.GameActionsMarkers;
 
-namespace Project.Features.Trail.Systems {
+namespace Project.Features.Apple.Systems {
 
     #pragma warning disable
-#pragma warning restore
+    using Project.Components; using Project.Modules; using Project.Systems; using Project.Markers;
+    using Components; using Modules; using Systems; using Markers;
+    #pragma warning restore
     
     #if ECS_COMPILE_IL2CPP_OPTIONS
     [Unity.IL2CPP.CompilerServices.Il2CppSetOptionAttribute(Unity.IL2CPP.CompilerServices.Option.NullChecks, false),
      Unity.IL2CPP.CompilerServices.Il2CppSetOptionAttribute(Unity.IL2CPP.CompilerServices.Option.ArrayBoundsChecks, false),
      Unity.IL2CPP.CompilerServices.Il2CppSetOptionAttribute(Unity.IL2CPP.CompilerServices.Option.DivideByZeroChecks, false)]
     #endif
-    public sealed class TrailSpawnSystem :  ISystem, IUpdate {
+    public sealed class AppleSpawnSystem : ISystem, IUpdate {
         
-        private TrailFeature feature;
-        
+        private AppleFeature feature;
+
         public World world { get; set; }
         
         void ISystemBase.OnConstruct() {
@@ -23,15 +25,17 @@ namespace Project.Features.Trail.Systems {
         }
         
         void ISystemBase.OnDeconstruct() {}
+        
+        //void IAdvanceTick.AdvanceTick(in float deltaTime) {}
 
-        public void Update(in float deltaTime)
+        void IUpdate.Update(in float deltaTime)
         {
             if (world.GetMarker(out CollectAppleMarker _))
             {
-                world.GetSystem<TrailPositionsSystem>().GetPositions().Enqueue(ref world.GetState().allocator,world.GetFeature<HeadFeature>().GetHead().GetPosition());
-                feature.SpawnLastTrail();
+                feature.ChangeApplePos();
             }
         }
+        
     }
     
 }

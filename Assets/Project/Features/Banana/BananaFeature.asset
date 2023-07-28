@@ -13,4 +13,4 @@ MonoBehaviour:
   m_Name: BananaFeature
   m_EditorClassIdentifier: 
   editorComment: 
-  bananaView: {fileID: 0}
+  bananaView: {fileID: 1328623339449165363, guid: 8208d16b0d2edee4c958049b24086857, type: 3}

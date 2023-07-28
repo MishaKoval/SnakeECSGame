@@ -9,6 +9,7 @@ namespace ME.ECS {
             CoreComponentsInitializer.InitTypeId();
 
 
+            WorldUtilities.InitComponentTypeId<Project.Features.Apple.Components.CollectedApples>(false, true, true, false, false, false, false, false, false);
             WorldUtilities.InitComponentTypeId<Project.Features.FieldElement.Components.FieldElementInitializer>(false, true, true, false, false, false, false, false, false);
             WorldUtilities.InitComponentTypeId<Project.Features.Head.Components.HeadDirection>(false, true, true, false, false, false, false, false, false);
             WorldUtilities.InitComponentTypeId<Project.Features.Head.Components.HeadInitializer>(false, true, true, false, false, false, false, false, false);
@@ -16,6 +17,8 @@ namespace ME.ECS {
             WorldUtilities.InitComponentTypeId<Project.Features.Trail.Components.TrailInitializer>(false, true, true, false, false, false, false, false, false);
             WorldUtilities.InitComponentTypeId<Project.Features.Trail.Components.TrailsData>(false, true, true, false, false, false, false, false, false);
             WorldUtilities.InitComponentTypeId<Project.Components.GamePaused>(true, true, true, false, false, false, false, false, false);
+            WorldUtilities.InitComponentTypeId<Project.Features.Apple.Components.AppleInitializer>(true, true, true, false, false, false, false, false, false);
+            WorldUtilities.InitComponentTypeId<Project.Features.Apple.Components.IsApple>(true, true, true, false, false, false, false, false, false);
             WorldUtilities.InitComponentTypeId<Project.Features.FieldElement.Components.IsFieldElement>(true, true, true, false, false, false, false, false, false);
             WorldUtilities.InitComponentTypeId<Project.Features.Head.Components.IsHead>(true, true, true, false, false, false, false, false, false);
             WorldUtilities.InitComponentTypeId<Project.Features.Trail.Components.IsTrail>(true, true, true, false, false, false, false, false, false);
@@ -29,6 +32,7 @@ namespace ME.ECS {
             CoreComponentsInitializer.InitTypeId();
 
 
+            WorldUtilities.InitComponentTypeId<Project.Features.Apple.Components.CollectedApples>(false, true, true, false, false, false, false, false, false);
             WorldUtilities.InitComponentTypeId<Project.Features.FieldElement.Components.FieldElementInitializer>(false, true, true, false, false, false, false, false, false);
             WorldUtilities.InitComponentTypeId<Project.Features.Head.Components.HeadDirection>(false, true, true, false, false, false, false, false, false);
             WorldUtilities.InitComponentTypeId<Project.Features.Head.Components.HeadInitializer>(false, true, true, false, false, false, false, false, false);
@@ -36,6 +40,8 @@ namespace ME.ECS {
             WorldUtilities.InitComponentTypeId<Project.Features.Trail.Components.TrailInitializer>(false, true, true, false, false, false, false, false, false);
             WorldUtilities.InitComponentTypeId<Project.Features.Trail.Components.TrailsData>(false, true, true, false, false, false, false, false, false);
             WorldUtilities.InitComponentTypeId<Project.Components.GamePaused>(true, true, true, false, false, false, false, false, false);
+            WorldUtilities.InitComponentTypeId<Project.Features.Apple.Components.AppleInitializer>(true, true, true, false, false, false, false, false, false);
+            WorldUtilities.InitComponentTypeId<Project.Features.Apple.Components.IsApple>(true, true, true, false, false, false, false, false, false);
             WorldUtilities.InitComponentTypeId<Project.Features.FieldElement.Components.IsFieldElement>(true, true, true, false, false, false, false, false, false);
             WorldUtilities.InitComponentTypeId<Project.Features.Head.Components.IsHead>(true, true, true, false, false, false, false, false, false);
             WorldUtilities.InitComponentTypeId<Project.Features.Trail.Components.IsTrail>(true, true, true, false, false, false, false, false, false);
@@ -44,6 +50,7 @@ namespace ME.ECS {
             CoreComponentsInitializer.Init(state, ref noState);
 
 
+            state.structComponents.ValidateUnmanaged<Project.Features.Apple.Components.CollectedApples>(ref state.allocator, false);
             state.structComponents.ValidateUnmanaged<Project.Features.FieldElement.Components.FieldElementInitializer>(ref state.allocator, false);
             state.structComponents.ValidateUnmanaged<Project.Features.Head.Components.HeadDirection>(ref state.allocator, false);
             state.structComponents.ValidateUnmanaged<Project.Features.Head.Components.HeadInitializer>(ref state.allocator, false);
@@ -51,6 +58,8 @@ namespace ME.ECS {
             state.structComponents.ValidateUnmanaged<Project.Features.Trail.Components.TrailInitializer>(ref state.allocator, false);
             state.structComponents.ValidateUnmanaged<Project.Features.Trail.Components.TrailsData>(ref state.allocator, false);
             state.structComponents.ValidateUnmanaged<Project.Components.GamePaused>(ref state.allocator, true);
+            state.structComponents.ValidateUnmanaged<Project.Features.Apple.Components.AppleInitializer>(ref state.allocator, true);
+            state.structComponents.ValidateUnmanaged<Project.Features.Apple.Components.IsApple>(ref state.allocator, true);
             state.structComponents.ValidateUnmanaged<Project.Features.FieldElement.Components.IsFieldElement>(ref state.allocator, true);
             state.structComponents.ValidateUnmanaged<Project.Features.Head.Components.IsHead>(ref state.allocator, true);
             state.structComponents.ValidateUnmanaged<Project.Features.Trail.Components.IsTrail>(ref state.allocator, true);
@@ -64,6 +73,7 @@ namespace ME.ECS {
         public static void Init(Entity entity) {
 
 
+            entity.ValidateDataUnmanaged<Project.Features.Apple.Components.CollectedApples>(false);
             entity.ValidateDataUnmanaged<Project.Features.FieldElement.Components.FieldElementInitializer>(false);
             entity.ValidateDataUnmanaged<Project.Features.Head.Components.HeadDirection>(false);
             entity.ValidateDataUnmanaged<Project.Features.Head.Components.HeadInitializer>(false);
@@ -71,6 +81,8 @@ namespace ME.ECS {
             entity.ValidateDataUnmanaged<Project.Features.Trail.Components.TrailInitializer>(false);
             entity.ValidateDataUnmanaged<Project.Features.Trail.Components.TrailsData>(false);
             entity.ValidateDataUnmanaged<Project.Components.GamePaused>(true);
+            entity.ValidateDataUnmanaged<Project.Features.Apple.Components.AppleInitializer>(true);
+            entity.ValidateDataUnmanaged<Project.Features.Apple.Components.IsApple>(true);
             entity.ValidateDataUnmanaged<Project.Features.FieldElement.Components.IsFieldElement>(true);
             entity.ValidateDataUnmanaged<Project.Features.Head.Components.IsHead>(true);
             entity.ValidateDataUnmanaged<Project.Features.Trail.Components.IsTrail>(true);
