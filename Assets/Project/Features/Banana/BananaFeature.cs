@@ -21,9 +21,20 @@ namespace Project.Features {
     {
 
         [SerializeField] private BananaView bananaView;
-        
-        protected override void OnConstruct() {
-            
+
+        public ViewId bananaId { get; private set; }
+
+        protected override void OnConstruct()
+        {
+            bananaId = world.RegisterViewSource(bananaView);
+            AddSystem<BananaInitSystem>();
+            AddSystem<BananaSpawnSystem>();
+        }
+
+        protected override void OnConstructLate()
+        {
+            var entity = world.AddEntity();
+            entity.Set(new BananaInitializer());
         }
 
         protected override void OnDeconstruct() {

@@ -1,7 +1,8 @@
 ﻿using ME.ECS;
+using Project.Features.Apple.Components;
 using Unity.Mathematics;
 
-namespace Project.Features.Apple.Systems {
+namespace Project.Features.Banana.Systems {
 
     #pragma warning disable
     using Project.Components; using Project.Modules; using Project.Systems; using Project.Markers;
@@ -13,9 +14,9 @@ namespace Project.Features.Apple.Systems {
      Unity.IL2CPP.CompilerServices.Il2CppSetOptionAttribute(Unity.IL2CPP.CompilerServices.Option.ArrayBoundsChecks, false),
      Unity.IL2CPP.CompilerServices.Il2CppSetOptionAttribute(Unity.IL2CPP.CompilerServices.Option.DivideByZeroChecks, false)]
     #endif
-    public sealed class AppleInitSystem : ISystemFilter {
+    public sealed class BananaInitSystem : ISystemFilter {
         
-        private AppleFeature feature;
+        private BananaFeature feature;
         
         public World world { get; set; }
         
@@ -34,16 +35,16 @@ namespace Project.Features.Apple.Systems {
         Filter ISystemFilter.filter { get; set; }
         Filter ISystemFilter.CreateFilter() {
             
-            return Filter.Create("Filter-AppleInitSystem").With<AppleInitializer>().Push();
+            return Filter.Create("Filter-BananaInitSystem").With<BananaInitializer>().Push();
             
         }
 
         void ISystemFilter.AdvanceTick(in Entity entity, in float deltaTime)
         {
-            entity.Set(new IsApple());
-            entity.SetPosition(new float3(16,0,16));
-            world.InstantiateView(feature.AppleId,entity);
-            entity.Remove<AppleInitializer>();
+            entity.Set(new IsBanana());
+            entity.SetPosition(new float3(15,0,15));
+            world.InstantiateView(feature.bananaId,entity);
+            entity.Remove<BananaInitializer>();
         }
     
     }

@@ -19,6 +19,8 @@ namespace ME.ECS {
             WorldUtilities.InitComponentTypeId<Project.Components.GamePaused>(true, true, true, false, false, false, false, false, false);
             WorldUtilities.InitComponentTypeId<Project.Features.Apple.Components.AppleInitializer>(true, true, true, false, false, false, false, false, false);
             WorldUtilities.InitComponentTypeId<Project.Features.Apple.Components.IsApple>(true, true, true, false, false, false, false, false, false);
+            WorldUtilities.InitComponentTypeId<Project.Features.Banana.Components.BananaInitializer>(true, true, true, false, false, false, false, false, false);
+            WorldUtilities.InitComponentTypeId<Project.Features.Banana.Components.IsBanana>(true, true, true, false, false, false, false, false, false);
             WorldUtilities.InitComponentTypeId<Project.Features.FieldElement.Components.IsFieldElement>(true, true, true, false, false, false, false, false, false);
             WorldUtilities.InitComponentTypeId<Project.Features.Head.Components.IsHead>(true, true, true, false, false, false, false, false, false);
             WorldUtilities.InitComponentTypeId<Project.Features.Trail.Components.IsTrail>(true, true, true, false, false, false, false, false, false);
@@ -42,6 +44,8 @@ namespace ME.ECS {
             WorldUtilities.InitComponentTypeId<Project.Components.GamePaused>(true, true, true, false, false, false, false, false, false);
             WorldUtilities.InitComponentTypeId<Project.Features.Apple.Components.AppleInitializer>(true, true, true, false, false, false, false, false, false);
             WorldUtilities.InitComponentTypeId<Project.Features.Apple.Components.IsApple>(true, true, true, false, false, false, false, false, false);
+            WorldUtilities.InitComponentTypeId<Project.Features.Banana.Components.BananaInitializer>(true, true, true, false, false, false, false, false, false);
+            WorldUtilities.InitComponentTypeId<Project.Features.Banana.Components.IsBanana>(true, true, true, false, false, false, false, false, false);
             WorldUtilities.InitComponentTypeId<Project.Features.FieldElement.Components.IsFieldElement>(true, true, true, false, false, false, false, false, false);
             WorldUtilities.InitComponentTypeId<Project.Features.Head.Components.IsHead>(true, true, true, false, false, false, false, false, false);
             WorldUtilities.InitComponentTypeId<Project.Features.Trail.Components.IsTrail>(true, true, true, false, false, false, false, false, false);
@@ -60,6 +64,8 @@ namespace ME.ECS {
             state.structComponents.ValidateUnmanaged<Project.Components.GamePaused>(ref state.allocator, true);
             state.structComponents.ValidateUnmanaged<Project.Features.Apple.Components.AppleInitializer>(ref state.allocator, true);
             state.structComponents.ValidateUnmanaged<Project.Features.Apple.Components.IsApple>(ref state.allocator, true);
+            state.structComponents.ValidateUnmanaged<Project.Features.Banana.Components.BananaInitializer>(ref state.allocator, true);
+            state.structComponents.ValidateUnmanaged<Project.Features.Banana.Components.IsBanana>(ref state.allocator, true);
             state.structComponents.ValidateUnmanaged<Project.Features.FieldElement.Components.IsFieldElement>(ref state.allocator, true);
             state.structComponents.ValidateUnmanaged<Project.Features.Head.Components.IsHead>(ref state.allocator, true);
             state.structComponents.ValidateUnmanaged<Project.Features.Trail.Components.IsTrail>(ref state.allocator, true);
@@ -83,6 +89,8 @@ namespace ME.ECS {
             entity.ValidateDataUnmanaged<Project.Components.GamePaused>(true);
             entity.ValidateDataUnmanaged<Project.Features.Apple.Components.AppleInitializer>(true);
             entity.ValidateDataUnmanaged<Project.Features.Apple.Components.IsApple>(true);
+            entity.ValidateDataUnmanaged<Project.Features.Banana.Components.BananaInitializer>(true);
+            entity.ValidateDataUnmanaged<Project.Features.Banana.Components.IsBanana>(true);
             entity.ValidateDataUnmanaged<Project.Features.FieldElement.Components.IsFieldElement>(true);
             entity.ValidateDataUnmanaged<Project.Features.Head.Components.IsHead>(true);
             entity.ValidateDataUnmanaged<Project.Features.Trail.Components.IsTrail>(true);
