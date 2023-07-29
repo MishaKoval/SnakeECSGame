@@ -11,7 +11,7 @@ namespace Project.Features.Banana.Views {
         
         public override bool applyStateJob => true;
 
-        private int _rotateAngle;
+        private float _rotateAngle;
 
         public override void OnInitialize() {
             
@@ -23,9 +23,9 @@ namespace Project.Features.Banana.Views {
         
         public override void ApplyStateJob(UnityEngine.Jobs.TransformAccess transform, float deltaTime, bool immediately) {
             transform.position = entity.GetPosition();
-            transform.rotation = Quaternion.Euler(0,_rotateAngle * rotateSpeed * deltaTime,0);
-            _rotateAngle++;
-            if (_rotateAngle == 360)
+            transform.rotation = Quaternion.Euler(0,_rotateAngle,0);
+            _rotateAngle+=  rotateSpeed * deltaTime;
+            if (_rotateAngle >= 360)
             {
                 _rotateAngle = 0;
             }

@@ -69,6 +69,7 @@ MonoBehaviour:
     enabled: 0
     parentId: 0
     roots: []
+  rotateSpeed: 60
 --- !u!1001 &1540974882705947990
 PrefabInstance:
   m_ObjectHideFlags: 0
