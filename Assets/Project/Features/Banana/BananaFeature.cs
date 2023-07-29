@@ -29,12 +29,19 @@ namespace Project.Features {
             bananaId = world.RegisterViewSource(bananaView);
             AddSystem<BananaInitSystem>();
             AddSystem<BananaSpawnSystem>();
+            AddSystem<BananaCollectSystem>();
+            AddSystem<BananaDespawnSystem>();
+        }
+
+        public void SpawnBanana()
+        {
+            var entity = world.AddEntity();
+            entity.Set(new BananaInitializer());
         }
 
         protected override void OnConstructLate()
         {
-            var entity = world.AddEntity();
-            entity.Set(new BananaInitializer());
+            //SpawnBanana();
         }
 
         protected override void OnDeconstruct() {

@@ -1,6 +1,7 @@
 ﻿using ME.ECS;
 using Project.Components;
 using Project.Features.Apple.Systems;
+using Project.Features.Banana.Systems;
 using Project.Features.Trail.Systems;
 using Project.Features.WebSocketNetwork.Modules;
 using Project.Markers.GameActionsMarkers;
@@ -46,6 +47,7 @@ namespace Project.Features.Initialization.Modules {
                     world.GetSystem<TrailPositionsSystem>().ResetPositions();
                     world.GetFeature<TrailFeature>().ResetTrail();
                     world.GetSystem<AppleCollectSystem>().ResetAppleCount();
+                    world.GetSystem<BananaSpawnSystem>().ResetCollectedApples();
                 }
                 feature.OnGameCreated();
             }

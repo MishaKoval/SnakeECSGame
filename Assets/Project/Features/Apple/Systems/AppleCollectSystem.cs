@@ -16,11 +16,12 @@ namespace Project.Features.Apple.Systems {
     #endif
     public sealed class AppleCollectSystem : ISystemFilter {
         
+        public int _applesCount = 0;
+        
         private const float MinDistance = 0.1f;
         
         private AppleFeature feature;
 
-        private int _applesCount = 0;
         
         public World world { get; set; }
 

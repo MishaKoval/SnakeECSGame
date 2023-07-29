@@ -20,6 +20,7 @@ namespace ME.ECS {
             WorldUtilities.InitComponentTypeId<Project.Features.Apple.Components.AppleInitializer>(true, true, true, false, false, false, false, false, false);
             WorldUtilities.InitComponentTypeId<Project.Features.Apple.Components.IsApple>(true, true, true, false, false, false, false, false, false);
             WorldUtilities.InitComponentTypeId<Project.Features.Banana.Components.BananaInitializer>(true, true, true, false, false, false, false, false, false);
+            WorldUtilities.InitComponentTypeId<Project.Features.Banana.Components.Despawn>(true, true, true, false, false, false, false, false, false);
             WorldUtilities.InitComponentTypeId<Project.Features.Banana.Components.IsBanana>(true, true, true, false, false, false, false, false, false);
             WorldUtilities.InitComponentTypeId<Project.Features.Head.Components.IsHead>(true, true, true, false, false, false, false, false, false);
             WorldUtilities.InitComponentTypeId<Project.Features.Trail.Components.Despawn>(true, true, true, false, false, false, false, false, false);
@@ -45,6 +46,7 @@ namespace ME.ECS {
             WorldUtilities.InitComponentTypeId<Project.Features.Apple.Components.AppleInitializer>(true, true, true, false, false, false, false, false, false);
             WorldUtilities.InitComponentTypeId<Project.Features.Apple.Components.IsApple>(true, true, true, false, false, false, false, false, false);
             WorldUtilities.InitComponentTypeId<Project.Features.Banana.Components.BananaInitializer>(true, true, true, false, false, false, false, false, false);
+            WorldUtilities.InitComponentTypeId<Project.Features.Banana.Components.Despawn>(true, true, true, false, false, false, false, false, false);
             WorldUtilities.InitComponentTypeId<Project.Features.Banana.Components.IsBanana>(true, true, true, false, false, false, false, false, false);
             WorldUtilities.InitComponentTypeId<Project.Features.Head.Components.IsHead>(true, true, true, false, false, false, false, false, false);
             WorldUtilities.InitComponentTypeId<Project.Features.Trail.Components.Despawn>(true, true, true, false, false, false, false, false, false);
@@ -65,6 +67,7 @@ namespace ME.ECS {
             state.structComponents.ValidateUnmanaged<Project.Features.Apple.Components.AppleInitializer>(ref state.allocator, true);
             state.structComponents.ValidateUnmanaged<Project.Features.Apple.Components.IsApple>(ref state.allocator, true);
             state.structComponents.ValidateUnmanaged<Project.Features.Banana.Components.BananaInitializer>(ref state.allocator, true);
+            state.structComponents.ValidateUnmanaged<Project.Features.Banana.Components.Despawn>(ref state.allocator, true);
             state.structComponents.ValidateUnmanaged<Project.Features.Banana.Components.IsBanana>(ref state.allocator, true);
             state.structComponents.ValidateUnmanaged<Project.Features.Head.Components.IsHead>(ref state.allocator, true);
             state.structComponents.ValidateUnmanaged<Project.Features.Trail.Components.Despawn>(ref state.allocator, true);
@@ -90,6 +93,7 @@ namespace ME.ECS {
             entity.ValidateDataUnmanaged<Project.Features.Apple.Components.AppleInitializer>(true);
             entity.ValidateDataUnmanaged<Project.Features.Apple.Components.IsApple>(true);
             entity.ValidateDataUnmanaged<Project.Features.Banana.Components.BananaInitializer>(true);
+            entity.ValidateDataUnmanaged<Project.Features.Banana.Components.Despawn>(true);
             entity.ValidateDataUnmanaged<Project.Features.Banana.Components.IsBanana>(true);
             entity.ValidateDataUnmanaged<Project.Features.Head.Components.IsHead>(true);
             entity.ValidateDataUnmanaged<Project.Features.Trail.Components.Despawn>(true);
