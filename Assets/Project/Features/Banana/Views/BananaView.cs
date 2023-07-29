@@ -5,7 +5,9 @@ namespace Project.Features.Banana.Views {
     
     using ME.ECS.Views.Providers;
     
-    public class BananaView : MonoBehaviourView {
+    public class BananaView : MonoBehaviourView
+    {
+        [SerializeField] private float rotateSpeed;
         
         public override bool applyStateJob => true;
 
@@ -21,7 +23,7 @@ namespace Project.Features.Banana.Views {
         
         public override void ApplyStateJob(UnityEngine.Jobs.TransformAccess transform, float deltaTime, bool immediately) {
             transform.position = entity.GetPosition();
-            transform.rotation = Quaternion.Euler(0,_rotateAngle,0);
+            transform.rotation = Quaternion.Euler(0,_rotateAngle * rotateSpeed * deltaTime,0);
             _rotateAngle++;
             if (_rotateAngle == 360)
             {
