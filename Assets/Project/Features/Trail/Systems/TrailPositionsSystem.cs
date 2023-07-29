@@ -36,6 +36,14 @@ namespace Project.Features.Trail.Systems
 
         public World world { get; set; }
 
+        public void ResetPositions()
+        {
+            trailsPosition.Clear(world.GetState().allocator);
+            var allocator = world.GetState().allocator;
+            trailsPosition.Enqueue(ref allocator,new Vector3(0, 0, -1));
+            trailsPosition.Enqueue(ref allocator,new Vector3(0, 0, -2));
+        }
+
         void ISystemBase.OnConstruct()
         {
             this.GetFeature(out this.feature);
@@ -56,7 +64,7 @@ namespace Project.Features.Trail.Systems
 
         Filter ISystemFilter.CreateFilter()
         {
-            return Filter.Create("Filter-TrailMoveSystem").With<IsHead>().Push();
+            return Filter.Create("Filter-TrailMoveSystem").With<IsHead>().WithoutShared<GamePaused>().Push();
         }
 
         void ISystemFilter.AdvanceTick(in Entity entity, in float deltaTime)

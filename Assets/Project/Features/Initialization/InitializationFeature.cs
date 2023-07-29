@@ -1,5 +1,6 @@
 ﻿using ME.ECS;
 using UnityEngine;
+using UnityEngine.Serialization;
 
 namespace Project.Features {
     using Initialization.Modules;
@@ -16,11 +17,18 @@ namespace Project.Features {
     #endif
     public sealed class InitializationFeature : Feature
     {
-        [SerializeField] private GlobalEvent GameCreated;
+        [SerializeField] private GlobalEvent gameCreated;
+        
+        [SerializeField] private GlobalEvent startLoading;
 
         public void OnGameCreated()
         {
-            GameCreated.Execute();
+            gameCreated.Execute();
+        }
+        
+        public void OnStartGameLoading()
+        {
+            startLoading.Execute();
         }
 
         protected override void OnConstruct()

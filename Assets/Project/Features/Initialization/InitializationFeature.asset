@@ -13,4 +13,5 @@ MonoBehaviour:
   m_Name: InitializationFeature
   m_EditorClassIdentifier: 
   editorComment: 
-  GameCreated: {fileID: 11400000, guid: 3ae00264dce76b1448e7b78ef5336bbf, type: 2}
+  gameCreated: {fileID: 11400000, guid: 3ae00264dce76b1448e7b78ef5336bbf, type: 2}
+  startLoading: {fileID: 11400000, guid: a137fe7d34234574cab8431eb8407467, type: 2}

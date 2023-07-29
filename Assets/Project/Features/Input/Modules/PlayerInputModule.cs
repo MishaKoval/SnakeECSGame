@@ -30,18 +30,22 @@ namespace Project.Features.Input.Modules {
             if (UnityEngine.Input.GetKeyDown(KeyCode.A))
             {
                 world.AddMarker(new LeftKeyMarker());
+                return;
             }
             if (UnityEngine.Input.GetKeyDown(KeyCode.D))
             {
                 world.AddMarker(new RightKeyMarker());
+                return;
             }
             if (UnityEngine.Input.GetKeyDown(KeyCode.W))
             {
                 world.AddMarker(new UpKeyMarker());
+                return;
             }
             if (UnityEngine.Input.GetKeyDown(KeyCode.S))
             {
                 world.AddMarker(new DownKeyMarker());
+                return;
             }
             
             if (UnityEngine.Input.GetKeyDown(KeyCode.Space))

@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Text;
 using TMPro;
@@ -27,7 +28,8 @@ namespace Project.Utilities
             changeStepWait = new WaitForSeconds(changeStepTime);
             _text = GetComponent<TMP_Text>();
         }
-        private void Start()
+
+        private void OnEnable()
         {
             StartCoroutine(TextChanger());
         }

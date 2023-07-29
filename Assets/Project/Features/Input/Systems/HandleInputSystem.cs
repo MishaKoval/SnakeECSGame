@@ -36,16 +36,19 @@ namespace Project.Features.Input.Systems {
             {
                 if( world.GetFeature<HeadFeature>().GetHead().Get<HeadDirection>().direction != Vector3.right)
                     world.GetFeature<HeadFeature>().GetHead().Get<HeadDirection>().direction = Vector3.left;
+                return;
             }
             if (world.GetMarker(out RightKeyMarker rightKeyMarker))
             {
                 if( world.GetFeature<HeadFeature>().GetHead().Get<HeadDirection>().direction != Vector3.left)
                     world.GetFeature<HeadFeature>().GetHead().Get<HeadDirection>().direction = Vector3.right;
+                return;
             }
             if (world.GetMarker(out UpKeyMarker upKeyMarker))
             {
                 if( world.GetFeature<HeadFeature>().GetHead().Get<HeadDirection>().direction != Vector3.back)
                     world.GetFeature<HeadFeature>().GetHead().Get<HeadDirection>().direction = Vector3.forward;
+                return;
             }
             if (world.GetMarker(out DownKeyMarker downKeyMarker))
             {

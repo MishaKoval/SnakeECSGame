@@ -7,7 +7,9 @@ namespace Project.Utilities
 {
     public class UIInputButtons : MonoBehaviour
     {
-        [SerializeField] private GlobalEvent gameCreated;
+        [SerializeField] private GlobalEvent gameCreatedEvent;
+
+        [SerializeField] private GlobalEvent gameOverEvent;
         
         [SerializeField] private Button upBtn;
         
@@ -19,16 +21,18 @@ namespace Project.Utilities
 
         private void Start()
         {
-            gameCreated.Subscribe(EnableButtons);
+            gameCreatedEvent.Subscribe(EnableButtons);
+            gameOverEvent.Subscribe(DisableButtons);
             leftBtn.onClick.AddListener(LeftBtnClick);
             rightBtn.onClick.AddListener(RightBtnClick);
             upBtn.onClick.AddListener(UpBtnClick);
             downBtn.onClick.AddListener(DownBtnClick);
         }
-        
+
         private void OnDestroy()
         {
-            gameCreated.Unsubscribe(EnableButtons);
+            gameCreatedEvent.Unsubscribe(EnableButtons);
+            gameOverEvent.Unsubscribe(DisableButtons);
             leftBtn.onClick.RemoveListener(LeftBtnClick);
             rightBtn.onClick.RemoveListener(RightBtnClick);
             upBtn.onClick.RemoveListener(UpBtnClick);
@@ -41,6 +45,14 @@ namespace Project.Utilities
             rightBtn.gameObject.SetActive(true);
             upBtn.gameObject.SetActive(true);
             downBtn.gameObject.SetActive(true);
+        }
+        
+        private void DisableButtons(in Entity entity)
+        {
+            leftBtn.gameObject.SetActive(false);
+            rightBtn.gameObject.SetActive(false);
+            upBtn.gameObject.SetActive(false);
+            downBtn.gameObject.SetActive(false);
         }
 
         private void LeftBtnClick() {

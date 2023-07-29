@@ -13,5 +13,6 @@ MonoBehaviour:
   m_Name: HeadFeature
   m_EditorClassIdentifier: 
   editorComment: 
+  gameOver: {fileID: 11400000, guid: 49d0d44bce9aab94781308507c70bd48, type: 2}
   headView: {fileID: 9222254157794311590, guid: 3397cd4e3809d5e488c832b0fe4ab385, type: 3}
   startPos: {x: 0, y: 0, z: 0}

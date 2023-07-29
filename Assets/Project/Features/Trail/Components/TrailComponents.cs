@@ -12,6 +12,8 @@ namespace Project.Features.Trail.Components {
     public struct IsTrail : IComponent
     {
     }
+    
+    public struct Despawn : IComponent{ }
 
     public struct TrailsData : IComponent
     {

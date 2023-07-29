@@ -24,6 +24,7 @@ namespace ME.ECS {
             WorldUtilities.InitComponentTypeId<Project.Features.Banana.Components.IsBanana>(true, true, true, false, false, false, false, false, false);
             WorldUtilities.InitComponentTypeId<Project.Features.FieldElement.Components.IsFieldElement>(true, true, true, false, false, false, false, false, false);
             WorldUtilities.InitComponentTypeId<Project.Features.Head.Components.IsHead>(true, true, true, false, false, false, false, false, false);
+            WorldUtilities.InitComponentTypeId<Project.Features.Trail.Components.Despawn>(true, true, true, false, false, false, false, false, false);
             WorldUtilities.InitComponentTypeId<Project.Features.Trail.Components.IsTrail>(true, true, true, false, false, false, false, false, false);
 
         }
@@ -50,6 +51,7 @@ namespace ME.ECS {
             WorldUtilities.InitComponentTypeId<Project.Features.Banana.Components.IsBanana>(true, true, true, false, false, false, false, false, false);
             WorldUtilities.InitComponentTypeId<Project.Features.FieldElement.Components.IsFieldElement>(true, true, true, false, false, false, false, false, false);
             WorldUtilities.InitComponentTypeId<Project.Features.Head.Components.IsHead>(true, true, true, false, false, false, false, false, false);
+            WorldUtilities.InitComponentTypeId<Project.Features.Trail.Components.Despawn>(true, true, true, false, false, false, false, false, false);
             WorldUtilities.InitComponentTypeId<Project.Features.Trail.Components.IsTrail>(true, true, true, false, false, false, false, false, false);
 
             ComponentsInitializerWorld.Setup(ComponentsInitializerWorldGen.Init);
@@ -71,6 +73,7 @@ namespace ME.ECS {
             state.structComponents.ValidateUnmanaged<Project.Features.Banana.Components.IsBanana>(ref state.allocator, true);
             state.structComponents.ValidateUnmanaged<Project.Features.FieldElement.Components.IsFieldElement>(ref state.allocator, true);
             state.structComponents.ValidateUnmanaged<Project.Features.Head.Components.IsHead>(ref state.allocator, true);
+            state.structComponents.ValidateUnmanaged<Project.Features.Trail.Components.Despawn>(ref state.allocator, true);
             state.structComponents.ValidateUnmanaged<Project.Features.Trail.Components.IsTrail>(ref state.allocator, true);
 
         }
@@ -97,6 +100,7 @@ namespace ME.ECS {
             entity.ValidateDataUnmanaged<Project.Features.Banana.Components.IsBanana>(true);
             entity.ValidateDataUnmanaged<Project.Features.FieldElement.Components.IsFieldElement>(true);
             entity.ValidateDataUnmanaged<Project.Features.Head.Components.IsHead>(true);
+            entity.ValidateDataUnmanaged<Project.Features.Trail.Components.Despawn>(true);
             entity.ValidateDataUnmanaged<Project.Features.Trail.Components.IsTrail>(true);
 
         }

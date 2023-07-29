@@ -36,7 +36,7 @@ namespace Project.Features {
             AddSystem<TrailPositionsSystem>();
             AddSystem<TrailMoveSystem>();
             AddSystem<TrailSpawnSystem>();
-            
+            AddSystem<TrailDespawnSystem>();
             var data= world.AddEntity();
             data.Set(new TrailsData());
             trailsData = data;
@@ -65,7 +65,20 @@ namespace Project.Features {
             var pos = GetLastTrailPos();
             SpawnTrail(GetLastTrailPos());
         }
-        
+
+        public void ResetTrail()
+        {
+            for (int i = 0; i < trailsData.Get<TrailsData>().Trails.Count; i++)
+            {
+                trailsData.Get<TrailsData>().Trails[in world.GetState().allocator, i].Set<Despawn>();
+            }
+            trailsData.Get<TrailsData>().Trails.Clear(world.GetState().allocator);
+            for (int i = 0; i < 2; i++)
+            {
+                SpawnTrail(new Vector3(0, 0, -i - 1));
+            }
+        }
+
         private float3 GetLastTrailPos()
         {
             return trailsData.Get<TrailsData>()

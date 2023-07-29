@@ -1,5 +1,6 @@
 ﻿using ME.ECS;
 using Project.Components;
+using Project.Features.Trail.Systems;
 using Project.Features.WebSocketNetwork.Modules;
 using Project.Markers.NetworkMarkers;
 
@@ -25,11 +26,24 @@ namespace Project.Features.Initialization.Modules {
         {
             if (world.GetMarker(out NetworkInitialized _))
             {
+                feature.OnStartGameLoading();
+                world.GetModule<WebSocketModule>().SendStartGameRequest();
+            }
+            if (world.GetMarker(out GameRestarted _))
+            {
+                feature.OnStartGameLoading();
                 world.GetModule<WebSocketModule>().SendStartGameRequest();
             }
             if (world.GetMarker(out GameCreated _))
             {
                 world.RemoveSharedData<WaitGameInitialization>();
+                if (world.HasSharedData<GamePaused>())
+                {
+                    world.RemoveSharedData<GamePaused>();
+                    world.GetFeature<HeadFeature>().ResetHead();
+                    world.GetSystem<TrailPositionsSystem>().ResetPositions();
+                    world.GetFeature<TrailFeature>().ResetTrail();
+                }
                 feature.OnGameCreated();
             }
         }

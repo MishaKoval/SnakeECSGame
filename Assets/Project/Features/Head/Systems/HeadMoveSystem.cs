@@ -34,8 +34,7 @@ namespace Project.Features.Head.Systems {
         Filter ISystemFilter.filter { get; set; }
         Filter ISystemFilter.CreateFilter() {
             
-            return Filter.Create("Filter-HeadMOveSystem").With<IsHead>().Push();
-            
+            return Filter.Create("Filter-HeadMOveSystem").With<IsHead>().WithoutShared<GamePaused>().Push();
         }
 
         void ISystemFilter.AdvanceTick(in Entity entity, in float deltaTime)

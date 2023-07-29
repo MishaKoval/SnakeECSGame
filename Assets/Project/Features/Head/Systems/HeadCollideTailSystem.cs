@@ -1,4 +1,5 @@
 ﻿using ME.ECS;
+using Project.Components;
 using Project.Features.Trail.Components;
 using UnityEngine;
 
@@ -14,8 +15,7 @@ namespace Project.Features.Head.Systems {
     #endif
     public sealed class HeadCollideTailSystem : ISystemFilter
     {
-        
-        private const float minDistance = 0.1f;
+        private const float minDistance = 0.01f;
         
         private HeadFeature feature;
         
@@ -24,7 +24,6 @@ namespace Project.Features.Head.Systems {
         void ISystemBase.OnConstruct() {
             
             this.GetFeature(out this.feature);
-            
         }
         
         void ISystemBase.OnDeconstruct() {}
@@ -35,19 +34,16 @@ namespace Project.Features.Head.Systems {
         #endif
         Filter ISystemFilter.filter { get; set; }
         Filter ISystemFilter.CreateFilter() {
-            
-            return Filter.Create("Filter-HeadCollideTailSystem").With<IsTrail>().Push();
-            
+            return Filter.Create("Filter-HeadCollideTailSystem").With<IsTrail>().WithoutShared<GamePaused>().Push();
         }
         
         void ISystemFilter.AdvanceTick(in Entity entity, in float deltaTime)
         {
             if (((Vector3)feature.GetHead().GetPosition() - (Vector3)entity.GetPosition()).sqrMagnitude < minDistance)
             {
-                                
+                feature.OnGameOver();
+                world.SetSharedData(new GamePaused());
             }
         }
-    
     }
-    
 }

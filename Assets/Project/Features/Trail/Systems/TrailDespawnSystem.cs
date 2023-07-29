@@ -1,8 +1,6 @@
 ﻿using ME.ECS;
-using Unity.Mathematics;
-using UnityEngine;
 
-namespace Project.Features.Head.Systems {
+namespace Project.Features.Trail.Systems {
 
     #pragma warning disable
     using Project.Components; using Project.Modules; using Project.Systems; using Project.Markers;
@@ -14,9 +12,9 @@ namespace Project.Features.Head.Systems {
      Unity.IL2CPP.CompilerServices.Il2CppSetOptionAttribute(Unity.IL2CPP.CompilerServices.Option.ArrayBoundsChecks, false),
      Unity.IL2CPP.CompilerServices.Il2CppSetOptionAttribute(Unity.IL2CPP.CompilerServices.Option.DivideByZeroChecks, false)]
     #endif
-    public sealed class CheckBorderSystem : ISystemFilter {
+    public sealed class TrailDespawnSystem : ISystemFilter {
         
-        private HeadFeature feature;
+        private TrailFeature feature;
         
         public World world { get; set; }
         
@@ -35,33 +33,13 @@ namespace Project.Features.Head.Systems {
         Filter ISystemFilter.filter { get; set; }
         Filter ISystemFilter.CreateFilter() {
             
-            return Filter.Create("Filter-CheckBorderSystem").With<IsHead>().WithoutShared<GamePaused>().Push();
-            
+            return Filter.Create("Filter-TrailDespawn").With<IsTrail>().With<Despawn>().Push();
         }
 
         void ISystemFilter.AdvanceTick(in Entity entity, in float deltaTime)
         {
-            float3 pos = entity.GetPosition();
-            
-            if (pos.x > 31f)
-            {
-                entity.SetPosition(new float3(0,pos.y,pos.z));
-            }
-            
-            if (pos.x < 0f)
-            {
-                entity.SetPosition(new float3(31,pos.y,pos.z));
-            }
-            
-            if (pos.z > 31f)
-            {
-                entity.SetPosition(new float3(pos.x,pos.y,0));
-            }
-            
-            if (pos.z < 0f)
-            {
-                entity.SetPosition(new float3(pos.x,pos.y,31));
-            }
+            entity.DestroyAllViews();
+            entity.Destroy();
         }
     
     }

@@ -1,8 +1,6 @@
 ﻿using ME.ECS;
 
-namespace Project.Markers.NetworkMarkers {
-    
-    public struct GameCreated : IMarker {
-    }
-    
+namespace Project.Markers.NetworkMarkers 
+{
+    public struct GameCreated : IMarker { } 
 }

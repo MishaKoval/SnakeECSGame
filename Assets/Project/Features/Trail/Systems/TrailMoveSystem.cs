@@ -1,4 +1,5 @@
 ﻿using ME.ECS;
+using Project.Components;
 
 namespace Project.Features.Trail.Systems {
 
@@ -35,7 +36,7 @@ namespace Project.Features.Trail.Systems {
         Filter ISystemFilter.filter { get; set; }
         Filter ISystemFilter.CreateFilter() {
             
-            return Filter.Create("Filter-TrailMoveSystem").With<TrailsData>().Push();
+            return Filter.Create("Filter-TrailMoveSystem").With<TrailsData>().WithoutShared<GamePaused>().Push();
             
         }
 

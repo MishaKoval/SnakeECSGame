@@ -18,12 +18,18 @@ namespace Project.Features {
     #endif
     public sealed class HeadFeature : Feature
     {
+        [SerializeField] private GlobalEvent gameOver;
         [SerializeField] private HeadView headView;
         [SerializeField] private Vector3 startPos;
         
         private Entity _headEntity;
         
         public ViewId HeadId { get; private set;}
+        
+        public void OnGameOver()
+        {
+            gameOver.Execute();
+        }
         
         protected override void OnConstruct() {
             HeadId = world.RegisterViewSource(headView);
@@ -37,7 +43,12 @@ namespace Project.Features {
         {
             return _headEntity;
         }
-        
+
+        public void ResetHead()
+        {
+            _headEntity.SetPosition(startPos);
+        }
+
         protected override void OnConstructLate()
         {
             var entity = world.AddEntity();
