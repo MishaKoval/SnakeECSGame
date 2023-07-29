@@ -33,7 +33,7 @@ namespace Project.Features.Head.Systems {
         Filter ISystemFilter.filter { get; set; }
         Filter ISystemFilter.CreateFilter() {
             
-            return Filter.Create("Filter-HeadInitSystem").With<HeadInitializer>().Push();
+            return Filter.Create("Filter-HeadInitSystem").With<HeadInitializer>().WithoutShared<WaitGameInitialization>().Push();
         }
 
         void ISystemFilter.AdvanceTick(in Entity entity, in float deltaTime)

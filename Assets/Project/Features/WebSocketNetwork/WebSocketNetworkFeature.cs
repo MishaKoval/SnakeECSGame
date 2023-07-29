@@ -1,4 +1,5 @@
 ﻿using ME.ECS;
+using Project.Components;
 using UnityEngine;
 
 namespace Project.Features {
@@ -20,6 +21,8 @@ namespace Project.Features {
             
         protected override void OnConstruct() {
             AddModule<WebSocketModule>();
+            world.SetSharedData(new WaitGameInitialization());
+            Debug.Log("SetSharedWaitInit");
         }
 
         protected override void OnDeconstruct()

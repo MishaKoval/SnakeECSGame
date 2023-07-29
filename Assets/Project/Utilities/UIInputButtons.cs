@@ -1,5 +1,4 @@
 ﻿using ME.ECS;
-using Project.Markers;
 using Project.Markers.InputMarkers;
 using UnityEngine;
 using UnityEngine.UI;
@@ -8,6 +7,8 @@ namespace Project.Utilities
 {
     public class UIInputButtons : MonoBehaviour
     {
+        [SerializeField] private GlobalEvent gameCreated;
+        
         [SerializeField] private Button upBtn;
         
         [SerializeField] private Button downBtn;
@@ -18,6 +19,7 @@ namespace Project.Utilities
 
         private void Start()
         {
+            gameCreated.Subscribe(EnableButtons);
             leftBtn.onClick.AddListener(LeftBtnClick);
             rightBtn.onClick.AddListener(RightBtnClick);
             upBtn.onClick.AddListener(UpBtnClick);
@@ -26,12 +28,21 @@ namespace Project.Utilities
         
         private void OnDestroy()
         {
+            gameCreated.Unsubscribe(EnableButtons);
             leftBtn.onClick.RemoveListener(LeftBtnClick);
             rightBtn.onClick.RemoveListener(RightBtnClick);
             upBtn.onClick.RemoveListener(UpBtnClick);
             downBtn.onClick.RemoveListener(DownBtnClick);
         }
-        
+
+        private void EnableButtons(in Entity _)
+        {
+            leftBtn.gameObject.SetActive(true);
+            rightBtn.gameObject.SetActive(true);
+            upBtn.gameObject.SetActive(true);
+            downBtn.gameObject.SetActive(true);
+        }
+
         private void LeftBtnClick() {
             Worlds.currentWorld.AddMarker(new LeftKeyMarker());
         }

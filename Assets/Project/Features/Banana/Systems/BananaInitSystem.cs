@@ -1,13 +1,13 @@
 ﻿using ME.ECS;
-using Project.Features.Apple.Components;
 using Unity.Mathematics;
 
 namespace Project.Features.Banana.Systems {
 
     #pragma warning disable
-    using Project.Components; using Project.Modules; using Project.Systems; using Project.Markers;
-    using Components; using Modules; using Systems; using Markers;
-    #pragma warning restore
+    using Project.Components;
+    using Components;
+
+#pragma warning restore
     
     #if ECS_COMPILE_IL2CPP_OPTIONS
     [Unity.IL2CPP.CompilerServices.Il2CppSetOptionAttribute(Unity.IL2CPP.CompilerServices.Option.NullChecks, false),
@@ -34,9 +34,7 @@ namespace Project.Features.Banana.Systems {
         #endif
         Filter ISystemFilter.filter { get; set; }
         Filter ISystemFilter.CreateFilter() {
-            
-            return Filter.Create("Filter-BananaInitSystem").With<BananaInitializer>().Push();
-            
+            return Filter.Create("Filter-BananaInitSystem").With<BananaInitializer>().WithoutShared<WaitGameInitialization>().Push();
         }
 
         void ISystemFilter.AdvanceTick(in Entity entity, in float deltaTime)

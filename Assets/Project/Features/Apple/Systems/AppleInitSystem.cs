@@ -34,7 +34,7 @@ namespace Project.Features.Apple.Systems {
         Filter ISystemFilter.filter { get; set; }
         Filter ISystemFilter.CreateFilter() {
             
-            return Filter.Create("Filter-AppleInitSystem").With<AppleInitializer>().Push();
+            return Filter.Create("Filter-AppleInitSystem").With<AppleInitializer>().WithoutShared<WaitGameInitialization>().Push();
             
         }
 

@@ -30,7 +30,7 @@ namespace Project.Features.Trail.Systems {
         #endif
         Filter ISystemFilter.filter { get; set; }
         Filter ISystemFilter.CreateFilter() {
-            return Filter.Create("Filter-TrailInitSystem").With<TrailInitializer>().Push();
+            return Filter.Create("Filter-TrailInitSystem").With<TrailInitializer>().WithoutShared<WaitGameInitialization>().Push();
         }
 
         void ISystemFilter.AdvanceTick(in Entity entity, in float deltaTime)

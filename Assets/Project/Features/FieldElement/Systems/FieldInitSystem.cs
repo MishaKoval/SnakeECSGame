@@ -34,7 +34,7 @@ namespace Project.Features.FieldElement.Systems {
         Filter ISystemFilter.filter { get; set; }
         Filter ISystemFilter.CreateFilter() {
             
-            return Filter.Create("Filter-FieldInitSystem").With<FieldElementInitializer>().Push();
+            return Filter.Create("Filter-FieldInitSystem").With<FieldElementInitializer>().WithoutShared<WaitGameInitialization>().Push();
             
         }
 

@@ -11,7 +11,8 @@
         "Unity.Mathematics",
         "ME.ECS.Markers",
         "endel.nativewebsocket",
-        "Unity.TextMeshPro"
+        "Unity.TextMeshPro",
+        "ME.ECS.Essentials.GlobalEvents"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

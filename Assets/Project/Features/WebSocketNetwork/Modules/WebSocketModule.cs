@@ -2,6 +2,8 @@
 using NativeWebSocket;
 using Project.Utilities;
 using Newtonsoft.Json;
+using Project.Components;
+using Project.Markers.NetworkMarkers;
 using UnityEngine;
 
 namespace Project.Features.WebSocketNetwork.Modules {
@@ -22,21 +24,29 @@ namespace Project.Features.WebSocketNetwork.Modules {
 
         private int gameId;
         
-        public async void SendWebSocketMessage(string message)
+        private async void SendWebSocketMessage(string message)
         {
             if (websocket.State == WebSocketState.Open)
             {
                 await websocket.SendText(message);
             }
         }
-        
+
+        public void SendStartGameRequest()
+        {
+            SendWebSocketMessage(JsonConvert.SerializeObject(new ServerRequests.CreateGameRequest()));
+        }
+
         void IModuleBase.OnConstruct() {
             feature = world.GetFeature<WebSocketNetworkFeature>();
             websocket = new WebSocket(feature.webSocketUrl);
             
             websocket.OnOpen += () =>
             {
-                SendWebSocketMessage(JsonConvert.SerializeObject(new ServerRequests.CreateGameRequest()));
+                world.AddMarker(new NetworkInitialized());
+                //world.RemoveSharedData<GamePaused>();
+                //Debug.Log("Remove shared");
+                //SendWebSocketMessage(JsonConvert.SerializeObject(new ServerRequests.CreateGameRequest()));
             };
             
             websocket.OnError += (e) =>
@@ -57,6 +67,7 @@ namespace Project.Features.WebSocketNetwork.Modules {
                 {
                     case ServerRequests.gameCreatedResponce:
                         gameId = JsonConvert.DeserializeObject<ServerRequests.CreateGameServerResponse>(message).payload.id;
+                        world.AddMarker(new GameCreated());
                         break;
                     case ServerRequests.gameEndedResponce:
                         break;
