@@ -14,7 +14,7 @@ namespace Project.Utilities
         
         private void OnRestartBtnClick()
         {
-            Worlds.currentWorld.AddMarker(new GameRestarted());
+            Worlds.currentWorld.AddMarker(new GameRestartedMarker());
             restartGameEvent.Execute();
         }
         

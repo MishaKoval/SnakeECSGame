@@ -1,5 +1,6 @@
 ﻿using ME.ECS;
 using Unity.Mathematics;
+using UnityEngine;
 
 namespace Project.Features.Head.Systems {
 
@@ -39,11 +40,15 @@ namespace Project.Features.Head.Systems {
 
         void ISystemFilter.AdvanceTick(in Entity entity, in float deltaTime)
         {
+           Move(in entity);
+        }
+
+        private void Move(in Entity entity)
+        {
             var pos = entity.GetPosition();
             pos += (float3)entity.Get<HeadDirection>().direction;
             entity.SetPosition(pos);
         }
-    
     }
     
 }

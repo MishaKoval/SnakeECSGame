@@ -1,6 +1,9 @@
 ﻿using ME.ECS;
 using Project.Components;
+using Project.Features.Head.Components;
 using Project.Features.Trail.Components;
+using Project.Markers.NetworkMarkers;
+using Unity.Mathematics;
 using UnityEngine;
 
 namespace Project.Features.Head.Systems {
@@ -42,6 +45,7 @@ namespace Project.Features.Head.Systems {
             if (((Vector3)feature.GetHead().GetPosition() - (Vector3)entity.GetPosition()).sqrMagnitude < minDistance)
             {
                 feature.OnGameOver();
+                world.AddMarker(new GameOverMarker());
                 world.SetSharedData(new GamePaused());
             }
         }

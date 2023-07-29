@@ -33,13 +33,10 @@ namespace Project.Features {
 
         protected override void OnConstruct()
         {
-            AddModule<InitNetworkModule>();
+            AddModule<NetworkEventsModule>();
         }
 
-        protected override void OnDeconstruct() {
-            
-        }
-
+        protected override void OnDeconstruct() { }
     }
 
 }

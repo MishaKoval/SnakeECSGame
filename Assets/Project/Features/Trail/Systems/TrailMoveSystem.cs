@@ -37,7 +37,6 @@ namespace Project.Features.Trail.Systems {
         Filter ISystemFilter.CreateFilter() {
             
             return Filter.Create("Filter-TrailMoveSystem").With<TrailsData>().WithoutShared<GamePaused>().Push();
-            
         }
 
         void ISystemFilter.AdvanceTick(in Entity entity, in float deltaTime)

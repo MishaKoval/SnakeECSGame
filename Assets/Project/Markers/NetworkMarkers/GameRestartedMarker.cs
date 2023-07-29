@@ -2,5 +2,5 @@
 
 namespace Project.Markers.NetworkMarkers
 {
-    public struct GameRestarted :IMarker { }
+    public struct GameRestartedMarker :IMarker { }
 }

@@ -16,12 +16,19 @@ namespace Project.Features.Apple.Systems {
     #endif
     public sealed class AppleCollectSystem : ISystemFilter {
         
-        private const float minDistance = 0.1f;
+        private const float MinDistance = 0.1f;
         
         private AppleFeature feature;
+
+        private int _applesCount = 0;
         
         public World world { get; set; }
-        
+
+        public void ResetAppleCount()
+        {
+            _applesCount = 0;
+        }
+
         void ISystemBase.OnConstruct() {
             
             this.GetFeature(out this.feature);
@@ -37,14 +44,17 @@ namespace Project.Features.Apple.Systems {
         Filter ISystemFilter.CreateFilter() {
             
             return Filter.Create("Filter-AppleCollectSystem").With<IsApple>().Push();
-            
         }
 
         void ISystemFilter.AdvanceTick(in Entity entity, in float deltaTime)
         {
-            if (((Vector3)world.GetFeature<HeadFeature>().GetHead().GetPosition() - (Vector3)entity.GetPosition()).sqrMagnitude < minDistance)
+            if (((Vector3)world.GetFeature<HeadFeature>().GetHead().GetPosition() - (Vector3)entity.GetPosition()).sqrMagnitude < MinDistance)
             {
-                world.AddMarker(new CollectAppleMarker());
+                _applesCount++;
+                world.AddMarker(new CollectAppleMarker()
+                {
+                    ApplesCount = _applesCount
+                });
             }
         }
     

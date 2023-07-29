@@ -2,5 +2,5 @@
 
 namespace Project.Markers.NetworkMarkers
 {
-    public struct NetworkInitialized : IMarker { }
+    public struct NetworkInitializedMarker : IMarker { }
 }

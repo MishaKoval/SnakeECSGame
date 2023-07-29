@@ -22,7 +22,6 @@ namespace Project.Features {
         protected override void OnConstruct() {
             AddModule<WebSocketModule>();
             world.SetSharedData(new WaitGameInitialization());
-            Debug.Log("SetSharedWaitInit");
         }
 
         protected override void OnDeconstruct()

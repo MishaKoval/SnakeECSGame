@@ -4,5 +4,6 @@ namespace Project.Markers.GameActionsMarkers
 {
     public struct CollectAppleMarker : IMarker
     {
+        public int ApplesCount;
     }
 }
