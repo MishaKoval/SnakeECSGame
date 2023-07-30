@@ -10,7 +10,9 @@ namespace Project.Features.Banana.Components {
         
     }
 
-    public struct IsBanana : IComponent {
+    public struct IsBanana : IComponent
+    {
+        public float LifeTime;
     }
 
 }

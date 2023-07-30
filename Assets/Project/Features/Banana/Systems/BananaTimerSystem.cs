@@ -1,10 +1,9 @@
 ﻿using ME.ECS;
-using Unity.Mathematics;
+using Project.Markers.GameActionsMarkers;
 
 namespace Project.Features.Banana.Systems {
 
     #pragma warning disable
-    using Project.Components;
     using Components;
 
 #pragma warning restore
@@ -14,11 +13,9 @@ namespace Project.Features.Banana.Systems {
      Unity.IL2CPP.CompilerServices.Il2CppSetOptionAttribute(Unity.IL2CPP.CompilerServices.Option.ArrayBoundsChecks, false),
      Unity.IL2CPP.CompilerServices.Il2CppSetOptionAttribute(Unity.IL2CPP.CompilerServices.Option.DivideByZeroChecks, false)]
     #endif
-    public sealed class BananaInitSystem : ISystemFilter {
+    public sealed class BananaTimerSystem : ISystemFilter {
         
         private BananaFeature feature;
-
-        private const float LifeTime = 5.0f;
         
         public World world { get; set; }
         
@@ -36,19 +33,22 @@ namespace Project.Features.Banana.Systems {
         #endif
         Filter ISystemFilter.filter { get; set; }
         Filter ISystemFilter.CreateFilter() {
-            return Filter.Create("Filter-BananaInitSystem").With<BananaInitializer>().WithoutShared<WaitGameInitialization>().Push();
+            
+            return Filter.Create("Filter-BananaTimerSystem").With<IsBanana>().Without<Despawn>().Push();
+            
         }
 
         void ISystemFilter.AdvanceTick(in Entity entity, in float deltaTime)
         {
-            entity.Set(new IsBanana()
+            entity.Get<IsBanana>().LifeTime -= deltaTime;
+
+            if (entity.Get<IsBanana>().LifeTime <= 0)
             {
-                LifeTime = LifeTime
-            });
-            entity.SetPosition(new float3(15,0,15));
-            world.InstantiateView(feature.bananaId,entity);
-            entity.Remove<BananaInitializer>();
+                world.AddMarker(new BananaDisappearMarker());
+                entity.Set<Despawn>();
+            }
         }
+    
     }
     
 }

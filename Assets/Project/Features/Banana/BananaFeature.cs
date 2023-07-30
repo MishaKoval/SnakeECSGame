@@ -29,6 +29,7 @@ namespace Project.Features {
             bananaId = world.RegisterViewSource(bananaView);
             AddSystem<BananaInitSystem>();
             AddSystem<BananaSpawnSystem>();
+            AddSystem<BananaTimerSystem>();
             AddSystem<BananaCollectSystem>();
             AddSystem<BananaDespawnSystem>();
         }

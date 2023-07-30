@@ -1,4 +1,8 @@
-﻿using ME.ECS;
+﻿using System;
+using System.Globalization;
+using ME.ECS;
+using Project.Features.Banana.Components;
+using TMPro;
 using UnityEngine;
 
 namespace Project.Features.Banana.Views {
@@ -8,6 +12,8 @@ namespace Project.Features.Banana.Views {
     public class BananaView : MonoBehaviourView
     {
         [SerializeField] private float rotateSpeed;
+        [SerializeField] private TMP_Text timerText;
+        [SerializeField] private Transform timerCanvas;
         
         public override bool applyStateJob => true;
 
@@ -21,7 +27,8 @@ namespace Project.Features.Banana.Views {
             
         }
         
-        public override void ApplyStateJob(UnityEngine.Jobs.TransformAccess transform, float deltaTime, bool immediately) {
+        public override void ApplyStateJob(UnityEngine.Jobs.TransformAccess transform, float deltaTime, bool immediately)
+        {
             transform.position = entity.GetPosition();
             transform.rotation = Quaternion.Euler(0,_rotateAngle,0);
             _rotateAngle+=  rotateSpeed * deltaTime;
@@ -32,7 +39,8 @@ namespace Project.Features.Banana.Views {
         }
         
         public override void ApplyState(float deltaTime, bool immediately) {
-            
+            timerText.text = Math.Round(entity.Get<IsBanana>().LifeTime,1).ToString(CultureInfo.CurrentCulture);
+            timerCanvas.rotation = Quaternion.identity;
         }
     }
     
