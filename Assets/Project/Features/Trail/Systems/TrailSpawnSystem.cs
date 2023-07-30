@@ -31,6 +31,15 @@ namespace Project.Features.Trail.Systems {
                 world.GetSystem<TrailPositionsSystem>().GetPositions().Enqueue(ref world.GetState().allocator,world.GetFeature<HeadFeature>().GetHead().GetPosition());
                 feature.SpawnLastTrail();
             }
+
+            if (world.GetMarker(out CollectBananaMarker _))
+            {
+                for (int i = 0; i < 2; i++)
+                {
+                    world.GetSystem<TrailPositionsSystem>().GetPositions().Enqueue(ref world.GetState().allocator,world.GetFeature<HeadFeature>().GetHead().GetPosition());
+                    feature.SpawnLastTrail();
+                }
+            }
         }
     }
     

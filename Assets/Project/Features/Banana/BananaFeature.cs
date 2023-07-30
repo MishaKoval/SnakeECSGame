@@ -33,22 +33,13 @@ namespace Project.Features {
             AddSystem<BananaCollectSystem>();
             AddSystem<BananaDespawnSystem>();
         }
-
         public void SpawnBanana()
         {
             var entity = world.AddEntity();
             entity.Set(new BananaInitializer());
         }
-
-        protected override void OnConstructLate()
-        {
-            //SpawnBanana();
-        }
-
-        protected override void OnDeconstruct() {
-            
-        }
-
+        protected override void OnConstructLate() {}
+        protected override void OnDeconstruct() {}
     }
 
 }

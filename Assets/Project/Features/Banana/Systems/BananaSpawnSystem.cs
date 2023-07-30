@@ -1,6 +1,5 @@
 ﻿using ME.ECS;
 using Project.Markers.GameActionsMarkers;
-using UnityEngine;
 
 namespace Project.Features.Banana.Systems {
 
@@ -38,7 +37,6 @@ namespace Project.Features.Banana.Systems {
         
         public void Update(in float deltaTime)
         {
-            Debug.Log(collectedApples);
             if (world.GetMarker(out CollectAppleMarker _))
             {
                 if (!isHaveBanana)

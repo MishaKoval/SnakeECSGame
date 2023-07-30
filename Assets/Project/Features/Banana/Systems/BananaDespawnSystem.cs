@@ -36,8 +36,6 @@ namespace Project.Features.Banana.Systems {
             return Filter.Create("Filter-BanabaDespawnSystem").With<IsBanana>().With<Despawn>().Push();
             
         }
-
-        //todo timer
         
         void ISystemFilter.AdvanceTick(in Entity entity, in float deltaTime)
         {

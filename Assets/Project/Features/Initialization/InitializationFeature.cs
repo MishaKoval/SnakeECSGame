@@ -1,6 +1,5 @@
 ﻿using ME.ECS;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 namespace Project.Features {
     using Initialization.Modules;
@@ -34,6 +33,7 @@ namespace Project.Features {
         protected override void OnConstruct()
         {
             AddModule<NetworkEventsModule>();
+            AddModule<ResetGameModule>();
         }
 
         protected override void OnDeconstruct() { }

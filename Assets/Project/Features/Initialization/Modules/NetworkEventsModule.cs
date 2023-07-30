@@ -1,11 +1,8 @@
 ﻿using ME.ECS;
-using Project.Components;
-using Project.Features.Apple.Systems;
-using Project.Features.Banana.Systems;
-using Project.Features.Trail.Systems;
 using Project.Features.WebSocketNetwork.Modules;
 using Project.Markers.GameActionsMarkers;
 using Project.Markers.NetworkMarkers;
+using UnityEngine;
 
 namespace Project.Features.Initialization.Modules {
 #if ECS_COMPILE_IL2CPP_OPTIONS
@@ -18,7 +15,14 @@ namespace Project.Features.Initialization.Modules {
         private InitializationFeature feature;
         
         public World world { get; set; }
-        
+
+        private int collectedApples = 0;
+
+        public void ResetCollectdApples()
+        {
+            collectedApples = 0;
+        }
+
         void IModuleBase.OnConstruct() {
             this.feature = this.world.GetFeature<InitializationFeature>();
         }
@@ -37,29 +41,22 @@ namespace Project.Features.Initialization.Modules {
                 feature.OnStartGameLoading();
                 world.GetModule<WebSocketModule>().SendStartGameRequest();
             }
-            if (world.GetMarker(out GameCreatedMarker _))
-            {
-                world.RemoveSharedData<WaitGameInitialization>();
-                if (world.HasSharedData<GamePaused>())
-                {
-                    world.RemoveSharedData<GamePaused>();
-                    world.GetFeature<HeadFeature>().ResetHead();
-                    world.GetSystem<TrailPositionsSystem>().ResetPositions();
-                    world.GetFeature<TrailFeature>().ResetTrail();
-                    world.GetSystem<AppleCollectSystem>().ResetAppleCount();
-                    world.GetSystem<BananaSpawnSystem>().ResetCollectedApples();
-                }
-                feature.OnGameCreated();
-            }
             if (world.GetMarker(out GameOverMarker _))
             {
                 world.GetModule<WebSocketModule>().SendEndGameRequest();
             }
-            if (world.GetMarker(out CollectAppleMarker collectAppleMarker))
+            if (world.GetMarker(out CollectAppleMarker _))
             {
-                world.GetModule<WebSocketModule>().SendCollectAppleRequest(collectAppleMarker.ApplesCount);
+                collectedApples++;
+                world.GetModule<WebSocketModule>().SendCollectAppleRequest(collectedApples);
+                Debug.Log("Send" + collectedApples);
+            }
+            if (world.GetMarker(out CollectBananaMarker _))
+            {
+                collectedApples += 2;
+                world.GetModule<WebSocketModule>().SendCollectAppleRequest(collectedApples);
+                Debug.Log("Send" + collectedApples);
             }
         }
     }
-    
 }

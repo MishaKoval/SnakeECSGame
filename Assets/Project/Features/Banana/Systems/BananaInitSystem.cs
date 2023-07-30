@@ -1,4 +1,5 @@
 ﻿using ME.ECS;
+using Project.Features.Trail.Components;
 using Unity.Mathematics;
 
 namespace Project.Features.Banana.Systems {
@@ -25,7 +26,6 @@ namespace Project.Features.Banana.Systems {
         void ISystemBase.OnConstruct() {
             
             this.GetFeature(out this.feature);
-            
         }
         
         void ISystemBase.OnDeconstruct() {}
@@ -39,16 +39,38 @@ namespace Project.Features.Banana.Systems {
             return Filter.Create("Filter-BananaInitSystem").With<BananaInitializer>().WithoutShared<WaitGameInitialization>().Push();
         }
 
+        private void SetBananaPos(in Entity banana)
+        {
+            var trails  = world.GetFeature<TrailFeature>().GetTrailsData().Get<TrailsData>().Trails;
+            float3 newPos;
+            bool isOnTrail;
+            do
+            {
+                isOnTrail = false;
+                int newPosX = world.GetRandomRange(0, 31);
+                int newPosZ = world.GetRandomRange(0, 31);
+                newPos = new float3(newPosX, 0, newPosZ);
+                for (int i = 0; i < trails.Count; i++)
+                {
+                    if ( (int)newPos.x == (int)trails[in world.GetState().allocator,i].GetPosition().x && 
+                         (int)newPos.z == (int)trails[in world.GetState().allocator,i].GetPosition().z)
+                    {
+                        isOnTrail = true;
+                    }
+                }
+            } while (isOnTrail);
+            banana.SetPosition(newPos);
+        }
+
         void ISystemFilter.AdvanceTick(in Entity entity, in float deltaTime)
         {
             entity.Set(new IsBanana()
             {
                 LifeTime = LifeTime
             });
-            entity.SetPosition(new float3(15,0,15));
+            SetBananaPos(in entity);
             world.InstantiateView(feature.bananaId,entity);
             entity.Remove<BananaInitializer>();
         }
     }
-    
 }

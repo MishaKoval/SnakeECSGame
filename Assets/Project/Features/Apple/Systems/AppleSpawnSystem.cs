@@ -26,8 +26,6 @@ namespace Project.Features.Apple.Systems {
         
         void ISystemBase.OnDeconstruct() {}
         
-        //void IAdvanceTick.AdvanceTick(in float deltaTime) {}
-
         void IUpdate.Update(in float deltaTime)
         {
             if (world.GetMarker(out CollectAppleMarker _))
@@ -37,5 +35,4 @@ namespace Project.Features.Apple.Systems {
         }
         
     }
-    
 }
