@@ -61,9 +61,7 @@ namespace Project.Generator {
                     ComponentsInitializer.DoInit();
                     this.world.SetEntitiesCapacity(this.entitiesCapacity);
                     this.Initialize(this.world);
-                    
                 }
-                
             }
 
             if (this.world != null && this.world.IsLoading() == false && this.world.IsLoaded() == false) {
@@ -129,7 +127,6 @@ namespace ME.ECS {
             ComponentsInitializer.Init(Worlds.current.GetState(), ref Worlds.currentWorld.GetNoStateData());
             
         }
-
         static partial void Init(State state, ref World.NoState noState);
 
     }

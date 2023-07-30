@@ -49,13 +49,11 @@ namespace Project.Features.Initialization.Modules {
             {
                 collectedApples++;
                 world.GetModule<WebSocketModule>().SendCollectAppleRequest(collectedApples);
-                Debug.Log("Send" + collectedApples);
             }
             if (world.GetMarker(out CollectBananaMarker _))
             {
                 collectedApples += 2;
                 world.GetModule<WebSocketModule>().SendCollectAppleRequest(collectedApples);
-                Debug.Log("Send" + collectedApples);
             }
         }
     }

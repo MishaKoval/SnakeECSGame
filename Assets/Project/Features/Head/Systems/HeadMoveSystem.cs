@@ -19,11 +19,10 @@ namespace Project.Features.Head.Systems {
         private HeadFeature feature;
         
         public World world { get; set; }
-        
-        void ISystemBase.OnConstruct() {
-            
+
+        void ISystemBase.OnConstruct()
+        {
             this.GetFeature(out this.feature);
-            
         }
         
         void ISystemBase.OnDeconstruct() {}
@@ -39,8 +38,8 @@ namespace Project.Features.Head.Systems {
         }
 
         void ISystemFilter.AdvanceTick(in Entity entity, in float deltaTime)
-        {
-           Move(in entity);
+        { 
+            Move(in entity);
         }
 
         private void Move(in Entity entity)
