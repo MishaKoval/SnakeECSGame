@@ -43,6 +43,7 @@ namespace Project.Features.Apple.Systems {
         {
             if (((Vector3)world.GetFeature<HeadFeature>().GetHead().GetPosition() - (Vector3)entity.GetPosition()).sqrMagnitude < MinDistance)
             {
+                feature.OnCollectFood();
                 world.AddMarker(new CollectAppleMarker());
             }
         }

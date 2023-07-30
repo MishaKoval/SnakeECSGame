@@ -21,6 +21,8 @@ namespace Project.Features {
     public sealed class AppleFeature : Feature
     {
         [SerializeField] private AppleView appleView;
+
+        [SerializeField] private GlobalEvent collectFoodEvent;
         public ViewId AppleId { get; private set; }
 
         private Entity apple;
@@ -31,6 +33,11 @@ namespace Project.Features {
             AddSystem<AppleInitSystem>();
             AddSystem<AppleSpawnSystem>();
             AddSystem<AppleCollectSystem>();
+        }
+
+        public void OnCollectFood()
+        {
+            collectFoodEvent.Execute();
         }
 
         public void ChangeApplePos()

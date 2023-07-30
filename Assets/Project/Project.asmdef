@@ -12,7 +12,9 @@
         "ME.ECS.Markers",
         "endel.nativewebsocket",
         "Unity.TextMeshPro",
-        "ME.ECS.Essentials.GlobalEvents"
+        "ME.ECS.Essentials.GlobalEvents",
+        "Unity.RenderPipelines.Universal.Runtime",
+        "Unity.RenderPipelines.Core.Runtime"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

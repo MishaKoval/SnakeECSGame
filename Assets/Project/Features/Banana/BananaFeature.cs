@@ -22,6 +22,8 @@ namespace Project.Features {
 
         [SerializeField] private BananaView bananaView;
 
+        [SerializeField] private GlobalEvent collectFoodEvent;
+
         public ViewId bananaId { get; private set; }
 
         protected override void OnConstruct()
@@ -33,6 +35,12 @@ namespace Project.Features {
             AddSystem<BananaCollectSystem>();
             AddSystem<BananaDespawnSystem>();
         }
+
+        public void OnCollectFood()
+        {
+            collectFoodEvent.Execute();
+        }
+
         public void SpawnBanana()
         {
             var entity = world.AddEntity();

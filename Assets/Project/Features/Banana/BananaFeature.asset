@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   editorComment: 
   bananaView: {fileID: 1328623339449165363, guid: 8208d16b0d2edee4c958049b24086857, type: 3}
+  collectFoodEvent: {fileID: 11400000, guid: 6f767c168a84f9f4997bd67d32e349d4, type: 2}

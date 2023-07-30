@@ -46,6 +46,7 @@ namespace Project.Features.Banana.Systems {
         {
             if (((Vector3)world.GetFeature<HeadFeature>().GetHead().GetPosition() - (Vector3)entity.GetPosition()).sqrMagnitude < MinDistance)
             {
+                feature.OnCollectFood();
                 world.AddMarker(new CollectBananaMarker());
                 entity.Set(new Despawn());
             }

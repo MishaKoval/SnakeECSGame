@@ -14,3 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   editorComment: 
   appleView: {fileID: 894355245079315161, guid: 20b4d558e7ca1044096cc64338de3c7e, type: 3}
+  collectFoodEvent: {fileID: 11400000, guid: 6f767c168a84f9f4997bd67d32e349d4, type: 2}
